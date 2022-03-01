@@ -1,7 +1,7 @@
-import Test from 'components/Test';
+import Text from 'components/Text';
 import React from 'react';
 
 const Index = () => {
-  return <Test text="home">index</Test>;
+  return <Text text="home">index</Text>;
 };
 export default Index;
