@@ -12,13 +12,14 @@
     "paths": {
       "components/*": ["./components/*"],
       "utils/*": ["./utils/*"],
-      "hooks/*": ["./hooks/*"]
+      "hooks/*": ["./hooks/*"],
+      "global/*": ["./global/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.tsx"],
+  "include": ["src/**/*.tsx", "src/components/main/CategoryList", "src/components/main/ProfileImage/style.ts"],
   "exclude": ["node_modules"]
 }

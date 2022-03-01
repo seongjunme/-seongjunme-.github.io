@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { MAIN_LAYOUT_WIDTH } from 'global';
 
 export const Background = styled.div`
   width: 100%;
@@ -11,7 +12,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 768px;
+  width: ${MAIN_LAYOUT_WIDTH}px;
   height: 400px;
   margin: 0 auto;
 `;
