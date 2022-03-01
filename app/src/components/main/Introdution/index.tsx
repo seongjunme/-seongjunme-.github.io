@@ -9,7 +9,7 @@ const Introdution = () => {
         <ProfileImage />
         <div>
           <SubTitle>Nice To Meet You,</SubTitle>
-          <Title>I'm Junior Fontend Developer Jun.</Title>
+          <Title>HA HA HA HA HA HA HA HA HA HA !!</Title>
         </div>
       </Wrapper>
     </Background>
