@@ -1,13 +1,13 @@
 import React from 'react';
 import GlobalStyle from 'components/common/GlobalStyle';
-import ProfileImage from 'components/main/ProfileImage';
+import Introdution from 'components/main/Introdution';
 import styled from '@emotion/styled';
 
 const IndexPage = () => {
   return (
     <Container>
       <GlobalStyle />
-      <ProfileImage />
+      <Introdution />
     </Container>
   );
 };
