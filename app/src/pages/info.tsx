@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Text from 'components/Text';
 
 interface Props {
   data: {
@@ -23,9 +22,7 @@ const InfoPage: React.FC<Props> = ({
 }) => {
   return (
     <div>
-      <Text text={title}></Text>
-      <Text text={description}></Text>
-      <Text text={author}></Text>
+      {title} {description} {author}
     </div>
   );
 };

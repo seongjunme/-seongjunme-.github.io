@@ -1,7 +1,11 @@
-import Text from 'components/Text';
 import React from 'react';
+import { Link } from 'gatsby';
 
-const Index = () => {
-  return <Text text="home">index</Text>;
+const IndexPage = () => {
+  return (
+    <>
+      <Link to="/info/">To Info</Link>
+    </>
+  );
 };
-export default Index;
+export default IndexPage;
