@@ -23,9 +23,17 @@ const PostList: React.FC<Props> = ({ posts, selectedCategory }) => {
 
   return (
     <Wrapper>
-      {filteredPosts.map(({ node: { id, frontmatter } }) => (
-        <PostItem key={id} link="www.naver.com" {...frontmatter} />
-      ))}
+      {filteredPosts.map(
+        ({
+          node: {
+            id,
+            fields: { slug },
+            frontmatter,
+          },
+        }) => (
+          <PostItem key={id} link={slug} {...frontmatter} />
+        ),
+      )}
     </Wrapper>
   );
 };

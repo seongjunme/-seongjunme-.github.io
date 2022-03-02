@@ -1,13 +1,6 @@
-// exports.createPages = async ({ actions }) => {
-//   const { createPage } = actions
-//   createPage({
-//     path: "/using-dsg",
-//     component: require.resolve("./src/templates/using-dsg.js"),
-//     context: {},
-//     defer: true,
-//   })
-// }
 const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
+const { reporter } = require('gatsby/node_modules/gatsby-cli/lib/reporter/reporter');
 
 // Setup Import Alias
 exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
@@ -24,4 +17,54 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
       },
     },
   });
+};
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = createFilePath({ node, getNode });
+    createNodeField({ node, name: 'slug', value: slug });
+  }
+};
+
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions;
+
+  const queryAllMarkdownData = await graphql(
+    `
+      {
+        allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `,
+  );
+
+  if (queryAllMarkdownData.errors) {
+    reporter.panicOnBuild('Markdown Query Error');
+    return;
+  }
+
+  const PostTemplateComponent = path.resolve(__dirname, 'src/templates/post.tsx');
+
+  const generatePostPage = ({
+    node: {
+      fields: { slug },
+    },
+  }) => {
+    const pageOptions = {
+      path: slug,
+      component: PostTemplateComponent,
+      context: { slug },
+    };
+
+    createPage(pageOptions);
+  };
+  queryAllMarkdownData.data.allMarkdownRemark.edges.forEach(generatePostPage);
 };
