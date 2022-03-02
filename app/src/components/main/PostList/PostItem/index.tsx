@@ -1,19 +1,15 @@
 import React from 'react';
 import { Content, Thumbnail, Wrapper, Title, Date, Category, CategoryItem, Summary } from './style';
+import { PostItemType } from './types';
 
-interface Props {
-  title: string;
-  date: string;
-  categories: string[];
-  summary: string;
-  thumbnail: string;
+interface Props extends PostItemType {
   link: string;
 }
 
-const PostItem: React.FC<Props> = ({ title, date, categories, summary, thumbnail, link }) => {
+const PostItem: React.FC<Props> = ({ title, date, categories, summary, thumbnail: { publicURL }, link }) => {
   return (
     <Wrapper to={link}>
-      <Thumbnail src={thumbnail} alt="thumbnail" />
+      <Thumbnail src={publicURL} alt="thumbnail" />
       <Content>
         <Title>{title}</Title>
         <Date>{date}</Date>
