@@ -6,10 +6,19 @@ interface Props extends PostItemType {
   link: string;
 }
 
-const PostItem: React.FC<Props> = ({ title, date, categories, summary, thumbnail: { publicURL }, link }) => {
+const PostItem: React.FC<Props> = ({
+  title,
+  date,
+  categories,
+  summary,
+  thumbnail: {
+    childImageSharp: { gatsbyImageData },
+  },
+  link,
+}) => {
   return (
     <Wrapper to={link}>
-      <Thumbnail src={publicURL} alt="thumbnail" />
+      <Thumbnail image={gatsbyImageData} alt="thumbnail" />
       <Content>
         <Title>{title}</Title>
         <Date>{date}</Date>

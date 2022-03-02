@@ -1,10 +1,10 @@
 import React from 'react';
 import PostItem from './PostItem';
 import { Wrapper } from './style';
-import { PostType } from './types';
+import { PostListType } from './types';
 
 interface Props {
-  posts: PostType[];
+  posts: PostListType[];
 }
 
 const PostList: React.FC<Props> = ({ posts }) => {

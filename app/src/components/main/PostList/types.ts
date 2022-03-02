@@ -1,6 +1,6 @@
 import { PostItemType } from './PostItem/types';
 
-export interface PostType {
+export interface PostListType {
   node: {
     id: string;
     frontmatter: PostItemType;

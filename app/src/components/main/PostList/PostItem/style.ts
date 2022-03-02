@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 export const Wrapper = styled(Link)`
   display: flex;
@@ -16,11 +17,10 @@ export const Wrapper = styled(Link)`
   }
 `;
 
-export const Thumbnail = styled.img`
+export const Thumbnail = styled(GatsbyImage)`
   width: 100%;
   height: 200px;
   border-radius: 10px 10px 0 0;
-  object-fit: cover;
 `;
 
 export const Content = styled.div`

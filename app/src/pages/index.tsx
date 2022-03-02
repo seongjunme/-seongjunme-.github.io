@@ -6,7 +6,8 @@ import styled from '@emotion/styled';
 import Footer from 'components/common/Footer';
 import CategoryList from 'components/main/CategoryList';
 import PostList from 'components/main/PostList';
-import { PostType } from 'components/main/PostList/types';
+import { PostListType } from 'components/main/PostList/types';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 const CATEGORY_LIST = {
   All: 5,
@@ -17,7 +18,12 @@ const CATEGORY_LIST = {
 interface Props {
   data: {
     allMarkdownRemark: {
-      edges: PostType[];
+      edges: PostListType[];
+    };
+    file: {
+      childImageSharp: {
+        gatsbyImageData: IGatsbyImageData;
+      };
     };
   };
 }
@@ -25,12 +31,15 @@ interface Props {
 const IndexPage: React.FC<Props> = ({
   data: {
     allMarkdownRemark: { edges },
+    file: {
+      childImageSharp: { gatsbyImageData },
+    },
   },
 }) => {
   return (
     <Container>
       <GlobalStyle />
-      <Introdution />
+      <Introdution profileImg={gatsbyImageData} />
       <CategoryList seletedCategory="Web" categoryList={CATEGORY_LIST} />
       <PostList posts={edges} />
       <Footer />
@@ -57,10 +66,17 @@ export const getPostList = graphql`
             date(formatString: "YYYY.MM.DD.")
             categories
             thumbnail {
-              publicURL
+              childImageSharp {
+                gatsbyImageData(width: 768, height: 400)
+              }
             }
           }
         }
+      }
+    }
+    file(name: { eq: "profile" }) {
+      childImageSharp {
+        gatsbyImageData(width: 120, height: 120)
       }
     }
   }

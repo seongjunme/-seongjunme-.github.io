@@ -1,12 +1,17 @@
 import React from 'react';
-import ProfileImage from '../ProfileImage';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+import ProfileImage from './ProfileImage';
 import { Background, Wrapper, SubTitle, Title } from './style';
 
-const Introdution = () => {
+interface Props {
+  profileImg: IGatsbyImageData;
+}
+
+const Introdution: React.FC<Props> = ({ profileImg }) => {
   return (
     <Background>
       <Wrapper>
-        <ProfileImage />
+        <ProfileImage profileImg={profileImg} />
         <div>
           <SubTitle>Nice To Meet You,</SubTitle>
           <Title>HA HA HA HA HA HA HA HA HA HA !!</Title>
