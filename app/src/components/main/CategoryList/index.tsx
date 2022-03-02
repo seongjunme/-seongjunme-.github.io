@@ -1,12 +1,10 @@
 import React from 'react';
 import { Wrapper } from './style';
 import CategoryItem from './CategoryItem';
+import { CategoryListType } from './types';
 
-interface Props {
+interface Props extends CategoryListType {
   seletedCategory: string;
-  categoryList: {
-    [key: string]: number;
-  };
 }
 
 const CategoryList: React.FC<Props> = ({ seletedCategory, categoryList }) => {
