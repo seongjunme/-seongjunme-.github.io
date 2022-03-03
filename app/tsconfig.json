@@ -13,13 +13,18 @@
       "components/*": ["./components/*"],
       "utils/*": ["./utils/*"],
       "hooks/*": ["./hooks/*"],
-      "global/*": ["./global/*"]
+      "global/*": ["./global/*"],
+      "types/*": ["./types/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*.tsx", "src/components/main/CategoryList", "src/components/main/ProfileImage/style.ts"],
+  "include": [
+    "src/**/*.tsx",
+    "src/components/main/CategoryList",
+    "src/components/main/Introdution/ProfileImage/style.tsage/style.ts"
+  ],
   "exclude": ["node_modules"]
 }

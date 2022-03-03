@@ -1,15 +1,13 @@
 import React, { useMemo } from 'react';
 import { graphql } from 'gatsby';
-import GlobalStyle from 'components/common/GlobalStyle';
 import Introdution from 'components/main/Introdution';
-import styled from '@emotion/styled';
-import Footer from 'components/common/Footer';
 import CategoryList from 'components/main/CategoryList';
 import PostList from 'components/main/PostList';
 import { PostListType } from 'components/main/PostList/types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import queryString, { ParsedQuery } from 'query-string';
 import { CategoryListType } from 'components/main/CategoryList/types';
+import Layout from 'components/common/Layout';
 
 interface Props {
   location: {
@@ -66,22 +64,14 @@ const IndexPage: React.FC<Props> = ({
   );
 
   return (
-    <Container>
-      <GlobalStyle />
+    <Layout>
       <Introdution profileImg={gatsbyImageData} />
       <CategoryList seletedCategory={seletedCategory} categoryList={categoryList} />
       <PostList posts={edges} selectedCategory={seletedCategory} />
-      <Footer />
-    </Container>
+    </Layout>
   );
 };
 export default IndexPage;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`;
 
 export const getPostList = graphql`
   query getPostList {
