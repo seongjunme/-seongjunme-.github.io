@@ -69,11 +69,7 @@ const Home: React.FC<Props> = ({
   console.log(edges);
   return (
     <Background ref={outerRef} className="outer">
-      <Inner color="red"></Inner>
-      <Inner color="blue"></Inner>
-      <Inner color="yellow"></Inner>
-      {/* <Intro image={gatsbyImageData} /> */}
-
+      <Intro image={gatsbyImageData} />
       <GlobalStyle />
     </Background>
   );
@@ -91,11 +87,6 @@ const Background = styled.div`
   width: 100%;
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   color: #ffffff;
-`;
-
-const Inner = styled.div<{ color: string }>`
-  height: 100vh;
-  background-color: ${props => props.color};
 `;
 
 export const getData = graphql`

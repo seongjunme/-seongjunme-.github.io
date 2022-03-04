@@ -12,9 +12,20 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 1080px;
   margin: 0 auto;
-  padding: 100px;
+  padding: 0px 100px;
 `;
 
-// export const Title = styled.h6``
+export const SubTitle = styled.div`
+  font-size: 24px;
+  font-weight: 400;
+`;
+
+export const Title = styled.div`
+  margin-top: 5px;
+  font-size: 35px;
+  font-weight: 700;
+`;
