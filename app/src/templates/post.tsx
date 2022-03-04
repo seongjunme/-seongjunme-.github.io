@@ -1,8 +1,11 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from 'components/common/Layout';
-import Header from 'components/post/Header';
+import PostHeader from 'components/post/PostHeader';
 import { PostPageType } from 'types/post.types';
+import PostContent from 'components/post/PostContent';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
 
 interface Props {
   data: {
@@ -35,7 +38,8 @@ const post: React.FC<Props> = ({
 }) => {
   return (
     <Layout>
-      <Header image={gatsbyImageData}></Header>
+      <PostHeader image={gatsbyImageData} title={title} date={date} categories={categories} />
+      <PostContent html={html} />
     </Layout>
   );
 };

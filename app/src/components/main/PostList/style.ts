@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { MAIN_LAYOUT_WIDTH } from 'global';
+import { MAIN_LAYOUT_WIDTH } from 'utils';
 
 export const Wrapper = styled.div`
   display: grid;

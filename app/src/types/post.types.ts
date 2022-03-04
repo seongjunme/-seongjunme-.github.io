@@ -6,3 +6,9 @@ export interface PostPageType {
     frontmatter: PostItemType;
   };
 }
+
+export interface PostInfoType {
+  title: string;
+  date: string;
+  categories: string[];
+}

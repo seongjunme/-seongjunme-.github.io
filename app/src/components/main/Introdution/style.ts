@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { MAIN_LAYOUT_WIDTH } from 'global';
+import { MAIN_LAYOUT_WIDTH } from 'utils';
 
 export const Background = styled.div`
   width: 100%;
