@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
-// import Introdution from 'components/main/Introdution';
 import Intro from 'components/main/Intro';
+import Projects from 'components/main/Projects';
 import { graphql } from 'gatsby';
 import { PostListType } from 'components/main/PostList/types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
@@ -30,7 +30,7 @@ const Home: React.FC<Props> = ({
 }) => {
   const outerRef = useRef<any>();
   // const outerRef = useRef<HTMLDivElement>(null);
-  const pageCount = useRef(2);
+  const pageCount = useRef(1);
   const currentPage = useRef(0);
 
   useEffect(() => {
@@ -66,10 +66,10 @@ const Home: React.FC<Props> = ({
     };
   }, []);
 
-  console.log(edges);
   return (
     <Background ref={outerRef} className="outer">
       <Intro image={gatsbyImageData} />
+      <Projects posts={edges} />
       <GlobalStyle />
     </Background>
   );
@@ -95,6 +95,9 @@ export const getData = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
