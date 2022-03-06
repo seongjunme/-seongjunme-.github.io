@@ -6,8 +6,9 @@ export const Container = styled.ul`
   justify-content: space-around;
   position: fixed;
   right: 100px;
-  top: 40px;
   width: 300px;
+  height: 10vh;
+  align-items: center;
 
   li {
     list-style: none;

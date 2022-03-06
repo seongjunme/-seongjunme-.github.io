@@ -68,7 +68,7 @@ const Home: React.FC<Props> = ({
   }, []);
 
   useEffect(() => {
-    const resizeHandler = (e: Event) => {
+    const resizeHandler = () => {
       outerRef.current.scrollTo({
         top: window.innerHeight * currentPage.current,
         left: 0,

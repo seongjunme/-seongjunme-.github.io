@@ -2,15 +2,16 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   display: grid;
+  justify-content: center;
+  align-content: center;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 320px 320px;
   grid-gap: 30px;
-  padding: 50px 100px;
   margin: 0 auto;
-  width: 1080px;
-  height: 100vh;
+  width: 786px;
+  height: 90vh;
 `;
 
-export const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+// export const Wrapper = styled.div`
+//   height: 100vh;
+// `;
