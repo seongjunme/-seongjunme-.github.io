@@ -9,13 +9,11 @@ export const Container = styled.ul`
   width: 300px;
   height: 100px;
   align-items: center;
-
-  li {
-    list-style: none;
-  }
 `;
 
 export const List = styled.li<{ isSelected: boolean }>`
+  list-style: none;
+  cursor: pointer;
   font-size: 18px;
   font-weight: ${({ isSelected }) => (isSelected ? 'bold' : 400)};
   text-decoration: ${({ isSelected }) => (isSelected ? 'underline' : 'none')};

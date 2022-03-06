@@ -37,29 +37,36 @@ const Home: React.FC<Props> = ({
   const currentPage = useRef(0);
   const [currentPageName, setCurrentPageName] = useState(FULL_PAGES[currentPage.current]);
 
+  const scrollToCurrentPage = () => {
+    outerRef.current.scrollTo({
+      top: window.innerHeight * currentPage.current,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollDown = () => {
+    currentPage.current += 1;
+    scrollToCurrentPage();
+    setCurrentPageName(FULL_PAGES[currentPage.current]);
+  };
+
+  const scrollUp = () => {
+    currentPage.current -= 1;
+    scrollToCurrentPage();
+    setCurrentPageName(FULL_PAGES[currentPage.current]);
+  };
+
   useEffect(() => {
     const wheelHandler = (e: WheelEvent) => {
       e.preventDefault();
 
-      const screenHeight = window.innerHeight;
       const { deltaY } = e;
 
       if (deltaY > 0 && currentPage.current < pageCount.current) {
-        currentPage.current += 1;
-        outerRef.current.scrollTo({
-          top: screenHeight * currentPage.current,
-          left: 0,
-          behavior: 'smooth',
-        });
-        setCurrentPageName(FULL_PAGES[currentPage.current]);
+        scrollDown();
       } else if (deltaY < 0 && currentPage.current > 0) {
-        currentPage.current -= 1;
-        outerRef.current.scrollTo({
-          top: screenHeight * currentPage.current,
-          left: 0,
-          behavior: 'smooth',
-        });
-        setCurrentPageName(FULL_PAGES[currentPage.current]);
+        scrollUp();
       }
     };
 
@@ -71,18 +78,10 @@ const Home: React.FC<Props> = ({
   }, []);
 
   useEffect(() => {
-    const resizeHandler = () => {
-      outerRef.current.scrollTo({
-        top: window.innerHeight * currentPage.current,
-        left: 0,
-        behavior: 'smooth',
-      });
-    };
-
-    window.addEventListener('resize', resizeHandler);
+    window.addEventListener('resize', scrollToCurrentPage);
 
     return () => {
-      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('resize', scrollToCurrentPage);
     };
   });
 
@@ -110,9 +109,18 @@ const Home: React.FC<Props> = ({
     [],
   );
 
+  const onClickNavBar = (e: React.MouseEvent<HTMLElement>) => {
+    const {
+      currentTarget: { innerText },
+    } = e;
+    currentPage.current = FULL_PAGES.indexOf(innerText);
+    scrollToCurrentPage();
+    setCurrentPageName(innerText);
+  };
+
   return (
     <Background ref={outerRef} className="outer">
-      <NavBar currentPageName={currentPageName} />
+      <NavBar currentPageName={currentPageName} onClickNavBar={onClickNavBar} />
       <About image={gatsbyImageData} />
       <Projects posts={projects} />
       <Projects posts={blogs} />
