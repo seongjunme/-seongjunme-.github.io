@@ -1,5 +1,5 @@
 import React from 'react';
-import { Content, Thumbnail, Wrapper, Title, Date, Category, CategoryItem, Summary } from './style';
+import { Content, Thumbnail, Wrapper, Title, Date, Category, CategoryItem, Summary, Footer } from './style';
 import { PostItemType } from 'types/post.types';
 
 interface Props extends PostItemType {
@@ -22,15 +22,17 @@ const PostItem: React.FC<Props> = ({
       <Content>
         <Title>{title}</Title>
         <Date>{date}</Date>
-        {categories && (
-          <Category>
-            {categories.map(category => (
-              <CategoryItem key={category}>{category}</CategoryItem>
-            ))}
-          </Category>
-        )}
+        <Category>
+          {categories.map(category => (
+            <CategoryItem key={category}>#{category}</CategoryItem>
+          ))}
+        </Category>
         <Summary>{summary}</Summary>
       </Content>
+      <Footer>
+        <span>By</span>
+        <b>Jun</b>
+      </Footer>
     </Wrapper>
   );
 };
