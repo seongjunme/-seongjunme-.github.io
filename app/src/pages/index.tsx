@@ -57,6 +57,30 @@ const Home: React.FC<Props> = ({
     setCurrentPageName(FULL_PAGES[currentPage.current]);
   };
 
+  const projects = useMemo(
+    () =>
+      edges.filter(
+        ({
+          node: {
+            frontmatter: { type },
+          },
+        }) => type === 'Project',
+      ),
+    [],
+  );
+
+  const blogs = useMemo(
+    () =>
+      edges.filter(
+        ({
+          node: {
+            frontmatter: { type },
+          },
+        }) => type === 'Blog',
+      ),
+    [],
+  );
+
   useEffect(() => {
     const wheelHandler = (e: WheelEvent) => {
       e.preventDefault();
@@ -84,30 +108,6 @@ const Home: React.FC<Props> = ({
       window.removeEventListener('resize', scrollToCurrentPage);
     };
   });
-
-  const projects = useMemo(
-    () =>
-      edges.filter(
-        ({
-          node: {
-            frontmatter: { type },
-          },
-        }) => type === 'Project',
-      ),
-    [],
-  );
-
-  const blogs = useMemo(
-    () =>
-      edges.filter(
-        ({
-          node: {
-            frontmatter: { type },
-          },
-        }) => type === 'Blog',
-      ),
-    [],
-  );
 
   const onClickNavBar = (e: React.MouseEvent<HTMLElement>) => {
     const {
