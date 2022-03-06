@@ -7,6 +7,7 @@ import { graphql } from 'gatsby';
 import { PostListType } from 'components/main/PostList/types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import NavBar from 'components/main/NavBar';
+import Contact from 'components/main/Contact';
 
 interface Props {
   data: {
@@ -31,7 +32,7 @@ const Home: React.FC<Props> = ({
 }) => {
   const outerRef = useRef<any>();
   // const outerRef = useRef<HTMLDivElement>(null);
-  const pageCount = useRef(2);
+  const pageCount = useRef(3);
   const currentPage = useRef(0);
 
   useEffect(() => {
@@ -56,8 +57,6 @@ const Home: React.FC<Props> = ({
           behavior: 'smooth',
         });
       }
-
-      console.log(currentPage.current);
     };
 
     outerRef.current?.addEventListener('wheel', wheelHandler);
@@ -113,6 +112,7 @@ const Home: React.FC<Props> = ({
       <About image={gatsbyImageData} />
       <Projects posts={projects} />
       <Projects posts={blogs} />
+      <Contact />
       <GlobalStyle />
     </Background>
   );
