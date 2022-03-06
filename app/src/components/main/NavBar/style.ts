@@ -14,3 +14,10 @@ export const Container = styled.ul`
     list-style: none;
   }
 `;
+
+export const List = styled.li<{ isSelected: boolean }>`
+  font-size: 18px;
+  font-weight: ${({ isSelected }) => (isSelected ? 'bold' : 400)};
+  text-decoration: ${({ isSelected }) => (isSelected ? 'underline' : 'none')};
+  text-underline-position: under;
+`;

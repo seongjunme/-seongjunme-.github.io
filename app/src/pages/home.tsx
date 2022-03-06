@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useMemo } from 'react';
+import React, { useRef, useEffect, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
 import About from 'components/main/About';
@@ -8,6 +8,7 @@ import { PostListType } from 'components/main/PostList/types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import NavBar from 'components/main/NavBar';
 import Contact from 'components/main/Contact';
+import { FULL_PAGES } from 'utils';
 
 interface Props {
   data: {
@@ -34,6 +35,7 @@ const Home: React.FC<Props> = ({
   // const outerRef = useRef<HTMLDivElement>(null);
   const pageCount = useRef(3);
   const currentPage = useRef(0);
+  const [currentPageName, setCurrentPageName] = useState(FULL_PAGES[currentPage.current]);
 
   useEffect(() => {
     const wheelHandler = (e: WheelEvent) => {
@@ -49,6 +51,7 @@ const Home: React.FC<Props> = ({
           left: 0,
           behavior: 'smooth',
         });
+        setCurrentPageName(FULL_PAGES[currentPage.current]);
       } else if (deltaY < 0 && currentPage.current > 0) {
         currentPage.current -= 1;
         outerRef.current.scrollTo({
@@ -56,6 +59,7 @@ const Home: React.FC<Props> = ({
           left: 0,
           behavior: 'smooth',
         });
+        setCurrentPageName(FULL_PAGES[currentPage.current]);
       }
     };
 
@@ -108,7 +112,7 @@ const Home: React.FC<Props> = ({
 
   return (
     <Background ref={outerRef} className="outer">
-      <NavBar />
+      <NavBar currentPageName={currentPageName} />
       <About image={gatsbyImageData} />
       <Projects posts={projects} />
       <Projects posts={blogs} />
