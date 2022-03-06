@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
-import Intro from 'components/main/Intro';
+import About from 'components/main/About';
 import Projects from 'components/main/Projects';
 import { graphql } from 'gatsby';
 import { PostListType } from 'components/main/PostList/types';
@@ -86,7 +86,7 @@ const Home: React.FC<Props> = ({
   return (
     <Background ref={outerRef} className="outer">
       <NavBar />
-      <Intro image={gatsbyImageData} />
+      <About image={gatsbyImageData} />
       <Projects posts={edges} />
       <GlobalStyle />
     </Background>
