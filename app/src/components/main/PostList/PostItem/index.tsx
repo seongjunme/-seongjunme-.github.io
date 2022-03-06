@@ -22,11 +22,13 @@ const PostItem: React.FC<Props> = ({
       <Content>
         <Title>{title}</Title>
         <Date>{date}</Date>
-        <Category>
-          {categories.map(category => (
-            <CategoryItem key={category}>{category}</CategoryItem>
-          ))}
-        </Category>
+        {categories && (
+          <Category>
+            {categories.map(category => (
+              <CategoryItem key={category}>{category}</CategoryItem>
+            ))}
+          </Category>
+        )}
         <Summary>{summary}</Summary>
       </Content>
     </Wrapper>

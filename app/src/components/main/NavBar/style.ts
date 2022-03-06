@@ -7,7 +7,7 @@ export const Container = styled.ul`
   position: fixed;
   right: 100px;
   width: 300px;
-  height: 10vh;
+  height: 100px;
   align-items: center;
 
   li {

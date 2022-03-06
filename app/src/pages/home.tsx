@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
 import About from 'components/main/About';
@@ -31,7 +31,7 @@ const Home: React.FC<Props> = ({
 }) => {
   const outerRef = useRef<any>();
   // const outerRef = useRef<HTMLDivElement>(null);
-  const pageCount = useRef(1);
+  const pageCount = useRef(2);
   const currentPage = useRef(0);
 
   useEffect(() => {
@@ -83,11 +83,36 @@ const Home: React.FC<Props> = ({
     };
   });
 
+  const projects = useMemo(
+    () =>
+      edges.filter(
+        ({
+          node: {
+            frontmatter: { type },
+          },
+        }) => type === 'Project',
+      ),
+    [],
+  );
+
+  const blogs = useMemo(
+    () =>
+      edges.filter(
+        ({
+          node: {
+            frontmatter: { type },
+          },
+        }) => type === 'Blog',
+      ),
+    [],
+  );
+
   return (
     <Background ref={outerRef} className="outer">
       <NavBar />
       <About image={gatsbyImageData} />
-      <Projects posts={edges} />
+      <Projects posts={projects} />
+      <Projects posts={blogs} />
       <GlobalStyle />
     </Background>
   );
@@ -126,6 +151,7 @@ export const getData = graphql`
                 gatsbyImageData(width: 768, height: 400)
               }
             }
+            type
           }
         }
       }

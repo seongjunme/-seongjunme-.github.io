@@ -10,4 +10,5 @@ export interface PostItemType {
       gatsbyImageData: IGatsbyImageData;
     };
   };
+  type: string;
 }

@@ -9,9 +9,6 @@ export const Container = styled.div`
   grid-gap: 30px;
   margin: 0 auto;
   width: 786px;
-  height: 90vh;
+  height: 100vh;
+  padding-top: 60px;
 `;
-
-// export const Wrapper = styled.div`
-//   height: 100vh;
-// `;
