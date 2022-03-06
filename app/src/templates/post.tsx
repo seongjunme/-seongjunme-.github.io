@@ -1,28 +1,16 @@
 import { graphql } from 'gatsby';
 import React from 'react';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
+import Layout from 'components/common/Layout';
+import PostHeader from 'components/blog/PostHeader';
+import { PostPageType } from 'types/post.types';
+import PostContent from 'components/blog/PostContent';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
 
 interface Props {
   data: {
     allMarkdownRemark: {
-      edges: [
-        {
-          node: {
-            html: string;
-            frontmatter: {
-              title: string;
-              date: string;
-              categories: string[];
-              summary: string;
-              thumbnail: {
-                childImageSharp: {
-                  gatsbyImageData: IGatsbyImageData;
-                };
-              };
-            };
-          };
-        },
-      ];
+      edges: PostPageType[];
     };
   };
 }
@@ -32,14 +20,28 @@ const post: React.FC<Props> = ({
     allMarkdownRemark: {
       edges: [
         {
-          node: { html, frontmatter },
+          node: {
+            html,
+            frontmatter: {
+              title,
+              date,
+              categories,
+              thumbnail: {
+                childImageSharp: { gatsbyImageData },
+              },
+            },
+          },
         },
       ],
     },
   },
 }) => {
-  console.log(html, frontmatter);
-  return <div></div>;
+  return (
+    <Layout>
+      <PostHeader image={gatsbyImageData} title={title} date={date} categories={categories} />
+      <PostContent html={html} />
+    </Layout>
+  );
 };
 
 export default post;
