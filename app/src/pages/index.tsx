@@ -134,7 +134,9 @@ export default Home;
 
 const Background = styled.div`
   height: 100vh;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
   &::--webkit-scrollbar {
     display: none;
   }
