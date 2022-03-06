@@ -67,6 +67,22 @@ const Home: React.FC<Props> = ({
     };
   }, []);
 
+  useEffect(() => {
+    const resizeHandler = (e: Event) => {
+      outerRef.current.scrollTo({
+        top: window.innerHeight * currentPage.current,
+        left: 0,
+        behavior: 'smooth',
+      });
+    };
+
+    window.addEventListener('resize', resizeHandler);
+
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    };
+  });
+
   return (
     <Background ref={outerRef} className="outer">
       <NavBar />
