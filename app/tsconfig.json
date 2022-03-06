@@ -23,7 +23,7 @@
   "include": [
     "src/**/*.tsx",
     "src/components/main/CategoryList",
-    "src/components/main/Introdution/ProfileImage/style.tsage/style.ts"
+    "src/components/main/ProfileImage/style.tsage/style.ts"
   ],
   "exclude": ["node_modules"]
 }

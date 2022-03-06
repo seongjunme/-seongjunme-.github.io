@@ -1,6 +1,6 @@
 import React from 'react';
 import { Content, Thumbnail, Wrapper, Title, Date, Category, CategoryItem, Summary } from './style';
-import { PostItemType } from './types';
+import { PostItemType } from 'types/post.types';
 
 interface Props extends PostItemType {
   link: string;

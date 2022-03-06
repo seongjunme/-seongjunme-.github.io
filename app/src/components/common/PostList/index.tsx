@@ -1,6 +1,6 @@
 import React from 'react';
-import PostItem from 'components/main/PostList/PostItem';
-import { PostListType } from 'components/main/PostList/types';
+import PostItem from 'components/common/PostItem';
+import { PostListType } from 'types/post.types';
 import { Container } from './style';
 
 interface Props {

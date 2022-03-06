@@ -1,4 +1,17 @@
-import { PostItemType } from 'components/main/PostList/PostItem/types';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
+
+export interface PostItemType {
+  title: string;
+  date: string;
+  categories: string[];
+  summary: string;
+  thumbnail: {
+    childImageSharp: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+  type: string;
+}
 
 export interface PostPageType {
   node: {
@@ -11,4 +24,14 @@ export interface PostInfoType {
   title: string;
   date: string;
   categories: string[];
+}
+
+export interface PostListType {
+  node: {
+    id: string;
+    fields: {
+      slug: string;
+    };
+    frontmatter: PostItemType;
+  };
 }

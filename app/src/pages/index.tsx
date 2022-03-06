@@ -1,18 +1,16 @@
-import React, { useMemo } from 'react';
+import React, { useRef, useEffect, useMemo, useState } from 'react';
+import styled from '@emotion/styled';
+import GlobalStyle from 'components/common/GlobalStyle';
+import About from 'components/home/About';
+import PostList from 'components/common/PostList';
 import { graphql } from 'gatsby';
-import Introdution from 'components/main/Introdution';
-import CategoryList from 'components/main/CategoryList';
-import PostList from 'components/main/PostList';
-import { PostListType } from 'components/main/PostList/types';
+import { PostListType } from 'types/post.types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
-import queryString, { ParsedQuery } from 'query-string';
-import { CategoryListType } from 'components/main/CategoryList/types';
-import Layout from 'components/common/Layout';
+import NavBar from 'components/home/NavBar';
+import Contact from 'components/home/Contact';
+import { FULL_PAGES } from 'utils';
 
 interface Props {
-  location: {
-    search: string;
-  };
   data: {
     allMarkdownRemark: {
       edges: PostListType[];
@@ -25,8 +23,7 @@ interface Props {
   };
 }
 
-const IndexPage: React.FC<Props> = ({
-  location: { search },
+const Home: React.FC<Props> = ({
   data: {
     allMarkdownRemark: { edges },
     file: {
@@ -34,47 +31,121 @@ const IndexPage: React.FC<Props> = ({
     },
   },
 }) => {
-  const { category }: ParsedQuery<string> = queryString.parse(search);
-  const seletedCategory: string = !category || typeof category !== 'string' ? 'All' : category;
+  const outerRef = useRef<any>();
+  // const outerRef = useRef<HTMLDivElement>(null);
+  const pageCount = useRef(3);
+  const currentPage = useRef(0);
+  const [currentPageName, setCurrentPageName] = useState(FULL_PAGES[currentPage.current]);
 
-  const categoryList = useMemo(
+  const scrollToCurrentPage = () => {
+    outerRef.current.scrollTo({
+      top: window.innerHeight * currentPage.current,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollDown = () => {
+    currentPage.current += 1;
+    scrollToCurrentPage();
+    setCurrentPageName(FULL_PAGES[currentPage.current]);
+  };
+
+  const scrollUp = () => {
+    currentPage.current -= 1;
+    scrollToCurrentPage();
+    setCurrentPageName(FULL_PAGES[currentPage.current]);
+  };
+
+  useEffect(() => {
+    const wheelHandler = (e: WheelEvent) => {
+      e.preventDefault();
+
+      const { deltaY } = e;
+
+      if (deltaY > 0 && currentPage.current < pageCount.current) {
+        scrollDown();
+      } else if (deltaY < 0 && currentPage.current > 0) {
+        scrollUp();
+      }
+    };
+
+    outerRef.current?.addEventListener('wheel', wheelHandler);
+
+    return () => {
+      outerRef.current?.removeEventListener('wheel', wheelHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', scrollToCurrentPage);
+
+    return () => {
+      window.removeEventListener('resize', scrollToCurrentPage);
+    };
+  });
+
+  const projects = useMemo(
     () =>
-      edges.reduce(
-        (
-          list: CategoryListType['categoryList'],
-          {
-            node: {
-              frontmatter: { categories },
-            },
+      edges.filter(
+        ({
+          node: {
+            frontmatter: { type },
           },
-        ) => {
-          categories.forEach(category => {
-            if (list[category] === undefined) {
-              list[category] = 1;
-              list['All'] += 1;
-            } else {
-              list[category] += 1;
-            }
-          });
-          return list;
-        },
-        { All: 0 },
+        }) => type === 'Project',
       ),
     [],
   );
 
+  const blogs = useMemo(
+    () =>
+      edges.filter(
+        ({
+          node: {
+            frontmatter: { type },
+          },
+        }) => type === 'Blog',
+      ),
+    [],
+  );
+
+  const onClickNavBar = (e: React.MouseEvent<HTMLElement>) => {
+    const {
+      currentTarget: { innerText },
+    } = e;
+    currentPage.current = FULL_PAGES.indexOf(innerText);
+    scrollToCurrentPage();
+    setCurrentPageName(innerText);
+  };
+
   return (
-    <Layout>
-      <Introdution profileImg={gatsbyImageData} />
-      <CategoryList seletedCategory={seletedCategory} categoryList={categoryList} />
-      <PostList posts={edges} selectedCategory={seletedCategory} />
-    </Layout>
+    <Background ref={outerRef} className="outer">
+      <NavBar currentPageName={currentPageName} onClickNavBar={onClickNavBar} />
+      <About image={gatsbyImageData} />
+      <PostList posts={projects} />
+      <PostList posts={blogs} />
+      <Contact />
+      <GlobalStyle />
+    </Background>
   );
 };
-export default IndexPage;
 
-export const getPostList = graphql`
-  query getPostList {
+export default Home;
+
+const Background = styled.div`
+  height: 100vh;
+  overflow-y: auto;
+  &::--webkit-scrollbar {
+    display: none;
+  }
+
+  width: 100%;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  color: #ffffff;
+`;
+
+export const getData = graphql`
+  query getData {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }) {
       edges {
         node {
@@ -92,6 +163,7 @@ export const getPostList = graphql`
                 gatsbyImageData(width: 768, height: 400)
               }
             }
+            type
           }
         }
       }

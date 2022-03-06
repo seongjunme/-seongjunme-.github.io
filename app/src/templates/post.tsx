@@ -1,9 +1,9 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from 'components/common/Layout';
-import PostHeader from 'components/post/PostHeader';
+import PostHeader from 'components/blog/PostHeader';
 import { PostPageType } from 'types/post.types';
-import PostContent from 'components/post/PostContent';
+import PostContent from 'components/blog/PostContent';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 deckDeckGoHighlightElement();
 
