@@ -9,6 +9,7 @@ import NavBar from 'components/home/NavBar';
 import Contact from 'components/home/Contact';
 import { FULL_PAGES } from 'utils';
 import PostList from 'components/home/PostList';
+import debounce from 'utils/debounce';
 
 interface Props {
   data: {
@@ -82,7 +83,7 @@ const Index: React.FC<Props> = ({
   );
 
   useEffect(() => {
-    const wheelHandler = (e: WheelEvent) => {
+    const wheelHandler = debounce((e: WheelEvent) => {
       e.preventDefault();
 
       const { deltaY } = e;
@@ -92,7 +93,7 @@ const Index: React.FC<Props> = ({
       } else if (deltaY < 0 && currentPage.current > 0) {
         scrollUp();
       }
-    };
+    }, 35);
 
     outerRef.current?.addEventListener('wheel', wheelHandler);
 
