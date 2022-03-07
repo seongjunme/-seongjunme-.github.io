@@ -11,7 +11,7 @@ const CategoryList: React.FC<Props> = ({ seletedCategory, categoryList }) => {
   return (
     <Wrapper>
       {Object.entries(categoryList).map(([name, count]) => (
-        <CategoryItem to={`/?category=${name}`} activate={name === seletedCategory} key={name}>
+        <CategoryItem to={`/blog?category=${name}`} activate={name === seletedCategory} key={name}>
           #{name}({count})
         </CategoryItem>
       ))}

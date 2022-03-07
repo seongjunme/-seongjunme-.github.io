@@ -1,28 +1,32 @@
 import React from 'react';
 import PostItem from 'components/common/PostItem';
 import { PostListType } from 'types/post.types';
-import { Container } from './style';
+import { Container, Wrapper, More } from './style';
 
 interface Props {
   posts: PostListType[];
+  moreURL?: string;
 }
 
-const Projects: React.FC<Props> = ({ posts }) => {
+const PostList: React.FC<Props> = ({ posts, moreURL }) => {
   return (
-    <Container>
-      {posts.map(
-        ({
-          node: {
-            id,
-            fields: { slug },
-            frontmatter,
-          },
-        }) => (
-          <PostItem key={id} link={slug} {...frontmatter} />
-        ),
-      )}
-    </Container>
+    <Wrapper>
+      <Container>
+        {posts.slice(0, 3).map(
+          ({
+            node: {
+              id,
+              fields: { slug },
+              frontmatter,
+            },
+          }) => (
+            <PostItem key={id} link={slug} {...frontmatter} />
+          ),
+        )}
+        {moreURL && <More to={moreURL}>more {'>'}</More>}
+      </Container>
+    </Wrapper>
   );
 };
 
-export default Projects;
+export default PostList;

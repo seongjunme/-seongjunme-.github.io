@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import PostItem from '../common/PostItem';
+import PostItem from '../../common/PostItem';
 import { Wrapper } from './style';
 import { PostListType } from 'types/post.types';
 
@@ -8,7 +8,7 @@ interface Props {
   selectedCategory: string;
 }
 
-const PostList: React.FC<Props> = ({ posts, selectedCategory }) => {
+const BlogList: React.FC<Props> = ({ posts, selectedCategory }) => {
   const filteredPosts = useMemo(
     () =>
       posts.filter(
@@ -38,4 +38,4 @@ const PostList: React.FC<Props> = ({ posts, selectedCategory }) => {
   );
 };
 
-export default PostList;
+export default BlogList;

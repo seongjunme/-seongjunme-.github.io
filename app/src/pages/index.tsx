@@ -2,13 +2,13 @@ import React, { useRef, useEffect, useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
 import About from 'components/home/About';
-import PostList from 'components/common/PostList';
 import { graphql } from 'gatsby';
 import { PostListType } from 'types/post.types';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import NavBar from 'components/home/NavBar';
 import Contact from 'components/home/Contact';
 import { FULL_PAGES } from 'utils';
+import PostList from 'components/common/PostList';
 
 interface Props {
   data: {
@@ -23,7 +23,7 @@ interface Props {
   };
 }
 
-const Home: React.FC<Props> = ({
+const Index: React.FC<Props> = ({
   data: {
     allMarkdownRemark: { edges },
     file: {
@@ -123,14 +123,14 @@ const Home: React.FC<Props> = ({
       <NavBar currentPageName={currentPageName} onClickNavBar={onClickNavBar} />
       <About image={gatsbyImageData} />
       <PostList posts={projects} />
-      <PostList posts={blogs} />
+      <PostList posts={blogs} moreURL="/blog" />
       <Contact />
       <GlobalStyle />
     </Background>
   );
 };
 
-export default Home;
+export default Index;
 
 const Background = styled.div`
   height: 100vh;
@@ -142,7 +142,6 @@ const Background = styled.div`
   }
 
   width: 100%;
-  /* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
   background-color: #121212;
   color: #ffffff;
 `;

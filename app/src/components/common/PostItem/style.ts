@@ -33,6 +33,7 @@ export const Content = styled.div`
   padding: 15px;
   background-color: #1e1e1e;
   height: 200px;
+  color: white;
 `;
 
 export const Title = styled.div`
@@ -86,7 +87,7 @@ export const Footer = styled.div`
   height: 45px;
   background-color: #1e1e1e;
   font-weight: 400;
-
+  color: white;
   span {
     font-size: 12px;
     color: #acacac;

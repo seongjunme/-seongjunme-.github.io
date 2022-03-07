@@ -17,6 +17,8 @@ const CategoryItem = styled(({ activate, ...props }: LinkProps) => <Link {...pro
   padding: 5px 0;
   font-size: 18px;
   font-weight: ${({ activate }) => (activate ? '800' : '400')};
+  text-decoration: ${({ activate }) => (activate ? 'underline' : 'none')};
+  text-underline-position: under;
   cursor: pointer;
 
   &::last-of-type {
