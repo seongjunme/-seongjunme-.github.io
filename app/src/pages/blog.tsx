@@ -5,7 +5,7 @@ import { graphql, Link } from 'gatsby';
 import { PostListType } from 'types/post.types';
 import Layout from 'components/common/Layout';
 import CategoryList from 'components/blog/CategoryList';
-import { CategoryListType } from 'components/blog/CategoryList/types';
+import { CategoryListType } from 'types/category.type';
 import queryString, { ParsedQuery } from 'query-string';
 
 interface Props {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Wrapper } from './style';
 import CategoryItem from './CategoryItem';
-import { CategoryListType } from './types';
+import { CategoryListType } from 'types/category.type';
 
 interface Props extends CategoryListType {
   seletedCategory: string;

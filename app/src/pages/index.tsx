@@ -8,7 +8,7 @@ import { IGatsbyImageData } from 'gatsby-plugin-image';
 import NavBar from 'components/home/NavBar';
 import Contact from 'components/home/Contact';
 import { FULL_PAGES } from 'utils';
-import PostList from 'components/common/PostList';
+import PostList from 'components/home/PostList';
 
 interface Props {
   data: {
