@@ -93,7 +93,7 @@ const Index: React.FC<Props> = ({
       } else if (deltaY < 0 && currentPage.current > 0) {
         scrollUp();
       }
-    }, 35);
+    }, 50);
 
     outerRef.current?.addEventListener('wheel', wheelHandler);
 
