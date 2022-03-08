@@ -1,13 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import debounce from 'utils/debounce';
 
-const FULL_PAGES = ['About', 'Project', 'Blog', 'Contact'];
+const PAGE_NAMES = ['About', 'Project', 'Blog', 'Contact'];
 
 const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
   const outerRef = useRef<any>();
-  const pageCount = useRef(maxPageCount);
   const currentPage = useRef(0);
-  const [currentPageName, setCurrentPageName] = useState<string>(FULL_PAGES[currentPage.current]);
+  const [currentPageName, setCurrentPageName] = useState<string>(PAGE_NAMES[currentPage.current]);
 
   const scrollToCurrentPage = () => {
     outerRef.current.scrollTo({
@@ -20,13 +19,13 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
   const scrollDown = () => {
     currentPage.current += 1;
     scrollToCurrentPage();
-    setCurrentPageName(FULL_PAGES[currentPage.current]);
+    setCurrentPageName(PAGE_NAMES[currentPage.current]);
   };
 
   const scrollUp = () => {
     currentPage.current -= 1;
     scrollToCurrentPage();
-    setCurrentPageName(FULL_PAGES[currentPage.current]);
+    setCurrentPageName(PAGE_NAMES[currentPage.current]);
   };
 
   useEffect(() => {
@@ -35,7 +34,7 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
 
       const { deltaY } = e;
 
-      if (deltaY > 0 && currentPage.current < pageCount.current) {
+      if (deltaY > 0 && currentPage.current < maxPageCount) {
         scrollDown();
       } else if (deltaY < 0 && currentPage.current > 0) {
         scrollUp();
@@ -61,7 +60,7 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
     const {
       currentTarget: { innerText },
     } = e;
-    currentPage.current = FULL_PAGES.indexOf(innerText);
+    currentPage.current = PAGE_NAMES.indexOf(innerText);
     scrollToCurrentPage();
     setCurrentPageName(innerText);
   };
