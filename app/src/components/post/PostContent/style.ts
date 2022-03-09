@@ -6,12 +6,12 @@ export const Wrapper = styled.div`
   flex-direction: column;
   width: ${MAIN_LAYOUT_WIDTH}px;
   margin: 0 auto;
-  padding: 100px 0;
   word-break: break-all;
 
   line-height: 1.8;
-  font-size: 16px;
+  font-size: 1.125rem;
   font-weight: 400;
+  color: #ececec;
 
   p {
     padding: 3px 0;
@@ -19,48 +19,94 @@ export const Wrapper = styled.div`
 
   h1,
   h2,
-  h3 {
-    font-weight: 800;
-    margin-bottom: 30px;
+  h3,
+  h4 {
+    margin: 2.414rem 0 1rem;
+    font-weight: inherit;
+    line-height: 1.42;
   }
-
-  * + h1,
-  * + h2,
-  * + h3 {
-    margin-top: 50px;
-  }
-
   h1 {
-    font-size: 30px;
+    /* margin-top: 0; */
+    font-size: 3.598rem;
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 2.827rem;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 1.999rem;
+  }
+
+  h4 {
+    font-size: 1.414rem;
+  }
+
+  h5 {
+    font-size: 1.121rem;
+  }
+
+  h6 {
+    font-size: 0.88rem;
   }
 
   blockquote {
-    margin: 30px 0;
+    margin: 10px 0;
+    border-left: 5px solid #7a7a7a;
+    font-style: italic;
     padding: 5px 15px;
-    border-left: 2px solid #000000;
-    font-weight: 800;
+    text-align: left;
+    background-color: #1e1e1e;
+  }
+
+  aside {
+    background-color: #1e1e1e;
+    margin: 10px 0;
+  }
+
+  table {
+    background-color: #22272e;
+    border-collapse: collapse;
+    th,
+    td {
+      &:not(first-child) {
+        border: 1px solid #444c56;
+      }
+      /* border: 1px solid #444c56; */
+      padding: 6px 13px;
+    }
   }
 
   ol,
   ul {
     margin-left: 20px;
-    padding: 30px 0;
+    padding: 10px 0;
   }
 
   hr {
     margin: 30px 0;
+    background: #4d4d4d;
+    border: none;
+    height: 1px;
+    width: 100%;
   }
 
   a {
-    color: #4263eb;
-    text-decoration: underline;
+    &:link {
+      text-decoration: none;
+      text-shadow: 0 0 24px;
+    }
+
+    &:hover {
+      color: #4263eb;
+    }
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  deckgo-highlight-code {
+    font-size: 14px;
   }
 `;

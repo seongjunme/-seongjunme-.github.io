@@ -2,13 +2,13 @@ import React from 'react';
 import { Global, css } from '@emotion/react';
 
 const defaultStyle = css`
-  @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
-
+  @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
   * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 300;
   }
 
   html,

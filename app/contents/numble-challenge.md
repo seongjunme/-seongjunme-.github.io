@@ -9,8 +9,7 @@ type: 'Blog'
 
 # 💎 결과물
 
-> [배포 링크] (https://numble-challenge-six.vercel.app/)
-> [저장소] (https://github.com/seongjunme/numble-challenge)
+> [배포 링크](https://numble-challenge-six.vercel.app/) <br /> > [프로젝트 저장소](https://github.com/seongjunme/numble-challenge)
 
 ---
 
@@ -42,6 +41,8 @@ type: 'Blog'
 
 ## 상태 관리
 
+<br />
+
 ```javascript
 function App() {
   const [state, dispatch] = useReducer(reducer, {
@@ -56,8 +57,12 @@ function App() {
 }
 ```
 
+<br />
+
 기본적으로 최상단 컴포넌트인 App에서 stage, time, score 등 주요 상태를 정의한다.
 time 같은 경우는 커스텀 훅이나 컴포넌트로 분리할까 했지만, score 증가 로직에 time 값이 영향을 주기 때문에 항상 time이 최신값으로 유지되어야 해서 dependency가 발생했다. 그래서 최상단에서 time 상태를 정의하게 되었다. 이 문제는 바로 아래에서 더 자세히 설명한다.
+
+<br />
 
 ```jsx
 function App() {
@@ -80,11 +85,17 @@ function App() {
 }
 ```
 
+<br />
+
 App에서 렌더링하는 Board 컴포넌트의 경우 useMemo를 이용하여 Props가 변경되지 않으면 리렌더링이 되지 않도록 하였다. goNextStage 메소드에서 발생시키는 dispatch는 stage 증가와, 남은 time 값에 따른 score 증가를 수행한다. 이때 stage와 time 값의 변경은 비동기처리를 고려하여 콜백 인자 값으로 최신 상태가 전달된다. 하지만 time을 외부 값(Time을 담당하는 하위 컴포넌트 또는 커스텀 훅)으로 받게되면 goNextStage에 time dependency가 발생하게 되어 time이 실시간으로 변경될 때마다 goNextStage함수가 재 선언되고, 이로 인해 Board 컴포넌트가 리렌더링되어 색깔이 매 초마다 변경되는 현상이 발생되었다.
 
 하지만 time을 분리시켜도 위 문제를 해결할 수 있는 방법이 있을 것이 분명하니 좀 더 고민이 필요해보인다.
 
+<br />
+
 ## 타이머
+
+<br />
 
 ```javascript
   const timer: { current: NodeJS.Timeout | null } = useRef(null);
@@ -114,13 +125,19 @@ App에서 렌더링하는 Board 컴포넌트의 경우 useMemo를 이용하여 P
   }, [time]);
 ```
 
+<br />
+
 렌더링 초기에 타이머를 등록한다.
 time 값이 변경될 때마다 time 값이 0이하인지 체크하게 되고, 0이하면 타이머를 종료시키고 GAME OVER 이벤트를 발생시킨다.
 GAME OVER는 isPlaying 상태를 false로 변경하게 된다.
 
 isPlaying이 false가 되면 alert로 종료 메시지를 보내고 사용자의 응답을 받으면 RESTART를 발생한다.
 
+<br />
+
 ## 블록 렌더링
+
+<br />
 
 ```jsx
 const Board = ({ stage, handleAnswer, handleWrongAnswer }: Props) => {
@@ -155,6 +172,8 @@ const Board = ({ stage, handleAnswer, handleWrongAnswer }: Props) => {
 };
 ```
 
+<br />
+
 앞선 코드에서 보았듯이 App에서 Board 컴포넌트에게 Props로 stage를 준다.
 Board 컴포넌트는 전달받은 stage에 따라 Block들을 렌더링한다.
 블럭 중 정답 색상은 스테이지가 올라갈수록 차이를 감소시키기 위해 rgb 값에 각각
@@ -163,10 +182,14 @@ Board 컴포넌트는 전달받은 stage에 따라 Block들을 렌더링한다.
 
 그리고 정답 블록을 랜덤으로 선택하여 rgb값과 onClickHandler값을 다르게 전달했다.
 
+<br />
+
 ```jsx
 const Block = ({ blockSize, rgb, onClickHandler }: Props) => {
   return <Layout blockSize={blockSize} rgb={rgb} onClick={onClickHandler} />;
 };
 ```
+
+<br />
 
 그리고 각 Block을 클릭하면 등록된 handler가 실행된다.
