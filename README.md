@@ -1,3 +1,7 @@
+## 🚀 배포
+
+https://seongjunme.github.io/
+
 ## 🖥 프로젝트 소개
 
 평소에 구현해보고 싶었던 Full Page의 기능을 중점으로
