@@ -9,6 +9,7 @@ export const Container = styled.ul`
   width: 300px;
   height: 100px;
   align-items: center;
+  z-index: 100;
 `;
 
 export const List = styled.li<{ isSelected: boolean }>`

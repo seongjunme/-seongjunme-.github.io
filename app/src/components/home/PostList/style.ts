@@ -1,0 +1,27 @@
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
+
+export const Container = styled.div`
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const Wrapper = styled.div`
+  height: 100vh;
+  position: relative;
+  margin: 0 auto;
+`;
+
+export const More = styled(Link)`
+  position: absolute;
+  top: -12%;
+  right: 1%;
+  font-size: 16px;
+`;
