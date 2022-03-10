@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.8.0"/><title data-react-helmet="true"></title><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link as="script" rel="preload" href="/webpack-runtime-1b85e547f840f8de7e90.js"/><link as="script" rel="preload" href="/framework-6bdc9aaa9caa3de6408b.js"/><link as="script" rel="preload" href="/app-93e30f6eee7813bea59e.js"/><link as="script" rel="preload" href="/component---src-templates-post-tsx-3c2f1e898ed0edb967f3.js"/><link as="fetch" rel="preload" href="/page-data/크롤링/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 1vevh07">.css-1vevh07{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;background-color:#121212;color:white;}</style><div class="css-1vevh07 ef79xez0"><style data-emotion="css-global 1llifsc">@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);*{padding:0;margin:0;box-sizing:border-box;font-family:'Open Sans',Helvetica,sans-serif;font-weight:300;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css z5i94e">.css-z5i94e{position:relative;width:100%;height:350px;}</style><div class="css-z5i94e evp6fv50"><style data-emotion="css 1cf6hsn">.css-1cf6hsn{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}</style><div class="css-1cf6hsn e1x0sffc2"><style data-emotion="css 1pr6csa">.css-1pr6csa{overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;font-size:45px;font-weight:800;}</style><div class="css-1pr6csa e1x0sffc1">웹 크롤링</div><style data-emotion="css 15xrm5i">.css-15xrm5i{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;font-size:18px;font-weight:700;}.css-15xrm5i div{margin-top:10px;}</style><div class="css-15xrm5i e1x0sffc0"><div>2021.07.25.</div><div>Node.js / 크롤링</div></div></div></div><style data-emotion="css n1la39">.css-n1la39{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;word-break:break-all;line-height:1.8;font-size:1.125rem;font-weight:400;color:#ececec;}.css-n1la39 p{padding:3px 0;}.css-n1la39 h1,.css-n1la39 h2,.css-n1la39 h3,.css-n1la39 h4{margin:2.414rem 0 1rem;font-weight:inherit;line-height:1.42;}.css-n1la39 h1{font-size:3.598rem;}.css-n1la39 h2{font-size:2.827rem;}.css-n1la39 h3{font-size:1.999rem;}.css-n1la39 h4{font-size:1.414rem;}.css-n1la39 h5{font-size:1.121rem;}.css-n1la39 h6{font-size:0.88rem;}.css-n1la39 blockquote{margin:10px 0;border-left:5px solid #7a7a7a;font-style:italic;padding:5px 15px;text-align:left;background-color:#1e1e1e;}.css-n1la39 aside{background-color:#1e1e1e;margin:10px 0;}.css-n1la39 table{background-color:#22272e;border-collapse:collapse;}.css-n1la39 table th,.css-n1la39 table td{padding:6px 13px;}.css-n1la39 table th:not(first-child),.css-n1la39 table td:not(first-child){border:1px solid #444c56;}.css-n1la39 ol,.css-n1la39 ul{margin-left:20px;padding:10px 0;}.css-n1la39 hr{margin:30px 0;background:#4d4d4d;border:none;height:1px;width:100%;}.css-n1la39 a:link{-webkit-text-decoration:none;text-decoration:none;text-shadow:0 0 24px;}.css-n1la39 a:hover{color:#4263eb;}.css-n1la39 strong{font-weight:bold;}.css-n1la39 deckgo-highlight-code{font-size:14px;}</style><div class="css-n1la39 era8a5j0"><h1>웹 크롤링</h1>
+<hr>
+<p>node에서 웹 크롤링을 구현하기 위한 다양한 라이브러리를 사용할 수 있다.</p>
+<p>그 중 axios와 cheerio를 알아보자.</p>
+<h3>2.1 axios</h3>
+<hr>
+<ul>
+<li>axios란 브라우저, node.js를 위한 Promise API를 활용하는 HTTP 비동기 통신 라이브러리이다.</li>
+<li>즉, url을 통해 서버에 요청하여 html문서를 받아오는 작업을 수행한다.</li>
+<li>받아온 html문서는 chreeio를 이용하여 파싱할 수 있다.</li>
+</ul>
+<h3>2.2 cheerio</h3>
+<hr>
+<ul>
+<li>chreeio란 html문서를 조작할 수 있게 도와주는 라이브러리다.</li>
+<li>마치 jquery를 사용하여 조작하는 것 처럼 파싱을 쉽게 만들어 준다.</li>
+<li>만약 검색 엔진에서 검색 리스트를 크롤링하고 싶다면, 검색 리스트의 html 패턴을 분석하여 파싱하면 된다.</li>
+</ul>
+<h3>2.3 비동기</h3>
+<hr>
+<ul>
+<li>앞서 말했듯이 axios는 비동기 통신 라이브러리이며, Promise를 사용하기 때문에 async, await 구문을 이용하여 통신을 진행해야 한다.</li>
+<li>비동기 통신의 간단한 예를 들어보자</li>
+</ul>
+<br />
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">function hello() {
+  return &#39;Hello&#39;;
+}
+hello();</code>
+        </deckgo-highlight-code>
+  <br />
+<p>위의 코드는 문자열을 리턴하는 간단한 함수이다.
+그런데 함수 앞에 async키워드를 추가한다면??</p>
+  <br />
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">async function hello() {
+  return &#39;Hello&#39;;
+}
+hello();</code>
+        </deckgo-highlight-code>
+<br />
+<p>이제 hello()는 Hello가 아닌 Promise를 반환한다.</p>
+<br />
+<h3>Promise란?</h3>
+<p>‘미래’시점을 위한 데이터, 즉 ‘이건 비동기 함수 이기 때문에 리턴 값이 바로 나오지 않아’라는 의미로 해석할 수 있다.</p>
+<p>즉 위의 코드를 정상적으로 동작시키기 위해선</p>
+<br />
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">async function hello() {
+  return &#39;Hello&#39;;
+}
+await hello();</code>
+        </deckgo-highlight-code>
+<br />
+<p>await을 붙여줘야 한다. 즉, ‘Promise를 리턴하는 거면 기다릴거야.. 라는 의미이다.’
+아직까지 비동기 방식을 완전히 이해하고 있지는 않기 때문에 추후에 더 공부해봐야한다!!</p></div><style data-emotion="css c5tzst">.css-c5tzst{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}</style><div class="css-c5tzst evi8j960">Thank You for Visiting My Blog, Have a Good Day.<br/>@ 2022 Developer Jun, Powerd By Gatsby.</div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/크롤링/";window.___webpackCompilationHash="5e30cf4b61d9bcbcc6c6";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-93e30f6eee7813bea59e.js"],"component---src-pages-blog-tsx":["/component---src-pages-blog-tsx-de6c06a9aea3b3d44050.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-3fdb0c9738e271a2273d.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-3c2f1e898ed0edb967f3.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-tsx-3c2f1e898ed0edb967f3.js" async=""></script><script src="/app-93e30f6eee7813bea59e.js" async=""></script><script src="/framework-6bdc9aaa9caa3de6408b.js" async=""></script><script src="/webpack-runtime-1b85e547f840f8de7e90.js" async=""></script></body></html>

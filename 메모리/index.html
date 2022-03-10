@@ -1,0 +1,219 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.8.0"/><title data-react-helmet="true"></title><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link as="script" rel="preload" href="/webpack-runtime-1b85e547f840f8de7e90.js"/><link as="script" rel="preload" href="/framework-6bdc9aaa9caa3de6408b.js"/><link as="script" rel="preload" href="/app-93e30f6eee7813bea59e.js"/><link as="script" rel="preload" href="/component---src-templates-post-tsx-3c2f1e898ed0edb967f3.js"/><link as="fetch" rel="preload" href="/page-data/메모리/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 1vevh07">.css-1vevh07{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;background-color:#121212;color:white;}</style><div class="css-1vevh07 ef79xez0"><style data-emotion="css-global 1llifsc">@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);*{padding:0;margin:0;box-sizing:border-box;font-family:'Open Sans',Helvetica,sans-serif;font-weight:300;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css z5i94e">.css-z5i94e{position:relative;width:100%;height:350px;}</style><div class="css-z5i94e evp6fv50"><style data-emotion="css 1cf6hsn">.css-1cf6hsn{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}</style><div class="css-1cf6hsn e1x0sffc2"><style data-emotion="css 1pr6csa">.css-1pr6csa{overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;font-size:45px;font-weight:800;}</style><div class="css-1pr6csa e1x0sffc1">메모리 구조</div><style data-emotion="css 15xrm5i">.css-15xrm5i{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;font-size:18px;font-weight:700;}.css-15xrm5i div{margin-top:10px;}</style><div class="css-15xrm5i e1x0sffc0"><div>2021.07.27.</div><div>CS</div></div></div></div><style data-emotion="css n1la39">.css-n1la39{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;word-break:break-all;line-height:1.8;font-size:1.125rem;font-weight:400;color:#ececec;}.css-n1la39 p{padding:3px 0;}.css-n1la39 h1,.css-n1la39 h2,.css-n1la39 h3,.css-n1la39 h4{margin:2.414rem 0 1rem;font-weight:inherit;line-height:1.42;}.css-n1la39 h1{font-size:3.598rem;}.css-n1la39 h2{font-size:2.827rem;}.css-n1la39 h3{font-size:1.999rem;}.css-n1la39 h4{font-size:1.414rem;}.css-n1la39 h5{font-size:1.121rem;}.css-n1la39 h6{font-size:0.88rem;}.css-n1la39 blockquote{margin:10px 0;border-left:5px solid #7a7a7a;font-style:italic;padding:5px 15px;text-align:left;background-color:#1e1e1e;}.css-n1la39 aside{background-color:#1e1e1e;margin:10px 0;}.css-n1la39 table{background-color:#22272e;border-collapse:collapse;}.css-n1la39 table th,.css-n1la39 table td{padding:6px 13px;}.css-n1la39 table th:not(first-child),.css-n1la39 table td:not(first-child){border:1px solid #444c56;}.css-n1la39 ol,.css-n1la39 ul{margin-left:20px;padding:10px 0;}.css-n1la39 hr{margin:30px 0;background:#4d4d4d;border:none;height:1px;width:100%;}.css-n1la39 a:link{-webkit-text-decoration:none;text-decoration:none;text-shadow:0 0 24px;}.css-n1la39 a:hover{color:#4263eb;}.css-n1la39 strong{font-weight:bold;}.css-n1la39 deckgo-highlight-code{font-size:14px;}</style><div class="css-n1la39 era8a5j0"><h1>1. 일반 메모리 구조</h1>
+<hr>
+<p>프로그램이 실행되기 위해선 OS가 프로그램을 메모리에 로드 해야한다.</p>
+<p>이 때 메모리에 프로그램의 코드와 변수들이 로드 된다.</p>
+<p>따라서 메모리 공간을 다음과 같이 나눠 구분한다.</p>
+<br />
+<img width="700" alt="1625800634797Screen_Shot_2021-07-09_at_12 14 43_PM" src="https://user-images.githubusercontent.com/72444675/157589758-533a9b33-75cd-4bb4-943d-785404e47fd4.png">
+<br />
+<h3>TEXT 영역</h3>
+<ul>
+<li>
+<p>프로그램에 있는 함수 코드, 제어문, 상수들이 저장되는 영역이다.</p>
+</li>
+<li>
+<p>실행할 코드는 프로그래머가 작성한 코드를 의미하고, 프로그램이 종료될 때 까지 메모리에 계속 남아있는다.</p>
+</li>
+<li>
+<p>CPU는 이 영역에 저장된 명령어를 하나씩 가져와 처리한다.</p>
+</li>
+<li>
+<p>GVAR/BSS 섹션</p>
+<ul>
+<li>범위(Scope)가 정해지지 않은 전역(Global) 변수를 포함한다.</li>
+<li>GVAR는 초기값을 0이 아닌 특정한 값으로 지정한 경우 사용한다.</li>
+</ul>
+</li>
+</ul>
+<h3>STACK 영역</h3>
+<ul>
+<li>
+<p>함수를 호출할 때마다 지역 변수, 매개 변수가 저장되는 영역이다.</p>
+</li>
+<li>
+<p>함수의 호출과 함께 할당 되며 리턴 시 소멸한다.</p>
+</li>
+<li>
+<p>예시</p>
+</li>
+</ul>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">function main() {
+  func1();
+}
+
+function func1() {
+  func2();
+}
+
+function func2() {
+  return;
+}
+
+main();</code>
+        </deckgo-highlight-code>
+  <br />
+<p><img src="https://user-images.githubusercontent.com/72444675/157589872-06af33eb-8f99-46a1-bc93-f5e4045f1c90.png" alt="img_c_stackframe_01 (1)"></p>
+<br />
+<p>Step1. main()에서 func1()이 실행되면 관련 값들이 스택에 적재된다.</p>
+<ul>
+<li>매개변수</li>
+<li>반환 주소 값 ( 함수 리턴 시 컨트롤 포인터를 어디로 반환할지 지정해주기 위한 값이다.)</li>
+<li>지역변수</li>
+</ul>
+<br />
+<p>Step2. func2(), … 함수들이 차례로 적재된다.</p>
+  <br />
+<p><img src="https://user-images.githubusercontent.com/72444675/157589954-b00d9b5d-fb9d-4ddd-a3d2-bbf8e2eb082d.png" alt="img_c_stackframe_02 (1)"></p>
+<br />
+<p>Step3. func2()가 종료되면 리턴 시 관련 변수(매개변수, 반환 주소, 지역변수)들이 스택에서 삭제 된다.</p>
+<br />
+<p>Step4. func2()가 종료됨에 따라 func1(), main() 또한 스택에서 제거 된다.</p>
+<br />
+<p><a href="http://tcpschool.com/c/c_memory_stackframe" target="_blank" rel="nofollow">출처: http://tcpschool.com/c/c_memory_stackframe</a></p>
+<br />
+<h3>HEAP 영역</h3>
+<ul>
+<li>힙 영역은 사용자가 직접 관리할 수 있는 영역이다.</li>
+<li>메모리 공간이 동적으로 할당되고 해제된다.</li>
+<li>힙 영역에 할당한 메모리 공간에 대한 주소를 참조하는 경우가 많다.</li>
+<li>스택과 힙의 연관 예시</li>
+</ul>
+<br />
+<p><img src="https://user-images.githubusercontent.com/72444675/157590278-12b0bb38-8fd7-4b50-b3ee-d982d8cd8bd3.png" alt="스크린샷_2021-07-22_오후_9 06 41"></p>
+<p>스택에 동적 할당된 Heap의 주소 값이 저장 되며, 참조할 수 있다.</p>
+<h1>2. V8 엔진 메모리 구조</h1>
+<hr>
+<p>자바스크립트를 실행할 수 있는 Node.js의 기반인 V8엔진 메모리 구조를 살펴보자. 먼저 힙과 스택으로 크게 구분되어 있는 것을 볼 수 있다.</p>
+<h3>2.1 V8 메모리 영역</h3>
+<hr>
+<p><img src="https://user-images.githubusercontent.com/72444675/157590328-22a85e48-9614-4729-b756-7129b6c79812.png" alt="0_SM_Ja0xN9q54Lpqf (1)"></p>
+<h3>힙 메모리 영역</h3>
+<ul>
+<li>New space 영역
+<ul>
+<li>새로 만들어진 모든 객체를 저장하고 이 객체들은 짧은 생명 주기를 가진다.</li>
+<li>이 영역은 크기가 작고 JVM에서 S0, S1과 같은 2개의 세미(semi) 영역을 가진다.</li>
+</ul>
+</li>
+<li>Old space 영역
+<ul>
+<li>New space 영역에서 살아남은 객체들이 이동하는 영역이다.</li>
+<li>Old 포인터 영역은 살아남은 객체들이 저장되고, 이 객체들은 다른 객체를 참조한다.</li>
+<li>Old 데이터 영역은 데이터만 가진 객체들(참조 x)이 저장된다.</li>
+</ul>
+</li>
+<li>Large obejct 영역
+<ul>
+<li>다른 영역의 제한된 크기보다 큰 객체들이 살고 있는 영역이다.</li>
+<li>각 객체는 자체 mmap 메모리 영역을 갖는다.</li>
+<li>Large object들은 가비지 컬렉터로 이동하지 않는다.</li>
+</ul>
+</li>
+<li>Code space 영역
+<ul>
+<li>실시간 컴파일러가 컴파일된 코드들을 저장하는 곳이다.</li>
+<li>유일하게 실행 가능한 메모리가 있는 영역이다.</li>
+</ul>
+</li>
+<li>Cell, Property, Map space 영역
+<ul>
+<li>이 영역들은 각각 Cells, PropertyCells, Maps를 포함한다.</li>
+<li>각 영역은 모두 같은 크기의 객체들을 포함하며, 어떤 종류의 객체를 참조하는지에 대한 제약이 있어서 수집을 단순하게 만든다.</li>
+</ul>
+</li>
+</ul>
+<h3>스택 영역</h3>
+<ul>
+<li>스택은 메모리 영역이고 V8 프로세스마다 하나의 스택을 갖는다.</li>
+<li>스택은 메서드와 함수 프레임, 원시 값, 객체 포인터를 포함한 정적 데이터가 저장되는 곳이다.</li>
+</ul>
+<h3>2.2 V8 메모리 관리: 가비지 컬렉션</h3>
+<hr>
+<p>V8 엔진이 힙 메모리를 어떻게 관리하는지 알아보자.</p>
+<ul>
+<li><strong>가비지 컬렉션이란?</strong>
+애플리케이션이 할당한 메모리 공간을 주기적으로 검사하여 더 이상 사용되지 않는 메모리를 해제하는 기능을 말한다.
+더 이상 사용되지 않는 메모리란 간단히 말하자면 어떤 식별자도 참조하지 않는 메모리 공간을 의미한다.</li>
+<li>가비지 컬렉션이 필요한 이유?
+<ul>
+<li>javascript에서는 malloc과 free와 같은 함수를 사용해서 메모리 컨트롤을 하지 않는다.</li>
+<li>따라서 메모리의 최대 용량을 사용하려 하면 메모리 부족 현상이 발생한다. (memory leak)</li>
+<li>위의 문제를 방지하기 위해 가비지 컬렉션이 필요하다.</li>
+</ul>
+</li>
+</ul>
+<h1>3. 가상 메모리</h1>
+<hr>
+<h3>3.1 가상 메모리란 ?</h3>
+<hr>
+<p>메모리 관리 기법의 하나로, 실제 자원을 추상화 하여 사용자에게 마치 메모리를 전부? 사용하는 듯한 느낌을 주는 방식이다.</p>
+<p>즉, 실제로 존재하지는 않지만 가상의 메모리 주소를 부여해 사용자에게 있어 메모리 역할을 하는 가상의 자원이다. 그러나 가상메모리에 수용된 프로그램이 실행될 때는 실제 메모리를 사용해야한다.</p>
+<ul>
+<li>가상 메모리와 실제 메모리의 관계
+가상 메모리 안에 프로그램이 실행될 때는 실제 메모리에 반드시 있어야 한다.
+하지만 프로그램의 전체가 실제 메모리에 있을 필요는 없다.
+즉, 당장 필요한 부분만 실제 메모리에 적재시켜 메모리를 효율적으로 사용할 수 있게된다.
+따라서 실제 메모리 보다 큰 용량을 가진 프로그램도 가상 메모리 기법을 통해 실행 시킬 수 있는 것 이다.</li>
+</ul>
+<h3>3.2 Paging</h3>
+<hr>
+<p>앞서 말한 가상메모리를 이용하기 위해 Paging이란 기법이 사용된다.</p>
+<ul>
+<li>Paging 기법이란 가상 메모리와 실제 메모리를 매핑하기 위한 기술이다.</li>
+<li>Paging 방식에서는 가상 메모리와 실제 메모리를 page와 frame을 단위로 나누어 사용한다.</li>
+<li>그리고 매핑을 위한 Page Table이 존재한다.</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/72444675/157590447-fee504da-0898-442b-864c-64c5f6352d76.jpeg" alt="d0029308_1131883 (1)"></p>
+<p>출처: <a href="http://board.theko.co.kr/bbs/board.php?bo_table=linux_ETC&#x26;wr_id=9&#x26;sfl=&#x26;stx=&#x26;sst=wr_hit&#x26;sod=asc&#x26;sop=and&#x26;page=2" target="_blank" rel="nofollow">http://board.theko.co.kr/</a></p>
+<p>따라서 Paging 기법을 이용한 가상메모리는 실제 메모리에 연속적으로 적재되지 않아도 마치 연속적으로 적재된 것 처럼 이용할 수 있다.</p>
+<h1>4. Process 노드 모듈</h1>
+<hr>
+<h3>4.1 Process 객체란 ?</h3>
+<hr>
+<p>프로그램을 실행 했을 때 만들어지는 프로세스 정보를 다루는 객체</p>
+<h3>4.2 Process 객체의 주요 속성과 메소드</h3>
+<hr>
+<ul>
+<li>시스템 정보 관련</li>
+</ul>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">console.log(process.env); // 컴퓨터 환경과 관련된 정보를 가진 객체
+console.log(process.version); // node.js의 버전
+console.log(process.versions); // node.js와 연관된 프로그램들의 버전을 가진 객체
+console.log(process.arch); // 프로세서의 아키텍처(arm/ia32/x64)
+console.log(process.platform); // 플랫폼(win32/linux/sunos/freebsd/darwin)
+console.log(process.memoryUsage()); // 메모리 사용 정보를 가진 객체
+console.log(process.uptime()); // 현재 프로그램이 실행된 시간</code>
+        </deckgo-highlight-code>
+<ul>
+<li>프로세스를 실행할 때 전달되는 파라미터 정보</li>
+</ul>
+<p>예제</p>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">process.argv.forEach(function (val, index, array) {
+  console.log(index + &#39;: &#39; + val);
+});</code>
+        </deckgo-highlight-code>
+<p>실행</p>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">$ node processArgv.js one two three
+0: node
+1: /(path)/processArgv.js
+2: one
+3: two
+4: three</code>
+        </deckgo-highlight-code>
+<ul>
+<li>프로세스 종료</li>
+</ul>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">$ node
+&gt; console.log(&quot;REPL을 실행한 화면입니다.&quot;);
+REPL을 실행한 화면입니다.
+undefined
+&gt; process.exit();
+$</code>
+        </deckgo-highlight-code>
+<p>exit()에 매개변수를 넘겨 줄 수 있고, 0은 정상 종료, 1은 비정상 종료를 의미한다.</p>
+<p><a href="https://opentutorials.org/module/938/7189" target="_blank" rel="nofollow">출처: opentutorials.org</a></p></div><style data-emotion="css c5tzst">.css-c5tzst{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}</style><div class="css-c5tzst evi8j960">Thank You for Visiting My Blog, Have a Good Day.<br/>@ 2022 Developer Jun, Powerd By Gatsby.</div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/메모리/";window.___webpackCompilationHash="5e30cf4b61d9bcbcc6c6";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-93e30f6eee7813bea59e.js"],"component---src-pages-blog-tsx":["/component---src-pages-blog-tsx-de6c06a9aea3b3d44050.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-3fdb0c9738e271a2273d.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-3c2f1e898ed0edb967f3.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-tsx-3c2f1e898ed0edb967f3.js" async=""></script><script src="/app-93e30f6eee7813bea59e.js" async=""></script><script src="/framework-6bdc9aaa9caa3de6408b.js" async=""></script><script src="/webpack-runtime-1b85e547f840f8de7e90.js" async=""></script></body></html>
