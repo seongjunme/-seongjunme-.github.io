@@ -17,12 +17,15 @@ const CategoryItem = styled(({ activate, ...props }: LinkProps) => <Link {...pro
   padding: 5px 0;
   font-size: 18px;
   font-weight: ${({ activate }) => (activate ? '800' : '400')};
-  text-decoration: ${({ activate }) => (activate ? 'underline' : 'none')};
-  text-underline-position: under;
+  border-bottom: ${({ activate }) => (activate ? '1px solid #ffffff' : 'none')};
   cursor: pointer;
 
   &::last-of-type {
     margin-right: 0;
+  }
+
+  &:hover {
+    border-bottom: 1px solid #ffffff;
   }
 `;
 
