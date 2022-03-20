@@ -10,19 +10,7 @@ interface Props {
 }
 
 const BlogList: React.FC<Props> = ({ posts, selectedCategory }) => {
-  const filteredPosts = useMemo(
-    () =>
-      posts.filter(
-        ({
-          node: {
-            frontmatter: { categories },
-          },
-        }) => selectedCategory === 'All' || categories.includes(selectedCategory),
-      ),
-    [selectedCategory],
-  );
-
-  const { targetRef, postsByPage } = useInfiniteScroll(filteredPosts);
+  const { targetRef, postsByPage } = useInfiniteScroll({ posts, selectedCategory });
 
   return (
     <Wrapper ref={targetRef}>

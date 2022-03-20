@@ -41,14 +41,9 @@ const Blog: React.FC<Props> = ({
         ) => {
           if (type !== 'Blog') return list;
 
-          categories.forEach(category => {
-            if (list[category] === undefined) {
-              list[category] = 1;
-              list['All'] += 1;
-            } else {
-              list[category] += 1;
-            }
-          });
+          list['All'] += 1;
+
+          categories.forEach(category => (list[category] ? (list[category] += 1) : (list[category] = 1)));
           return list;
         },
         { All: 0 },
