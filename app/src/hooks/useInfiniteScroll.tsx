@@ -19,12 +19,17 @@ const useInfiniteScroll = ({ posts, selectedCategory }: { posts: PostListType[];
     [selectedCategory],
   );
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    if (!entries[0].isIntersecting) return;
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      if (!entries[0].isIntersecting) return;
 
-    setPage(prev => prev + 1);
-    observer.disconnect();
-  });
+      setPage(prev => prev + 1);
+      observer.disconnect();
+    },
+    {
+      threshold: 1.0,
+    },
+  );
 
   useEffect(() => setPage(1), [selectedCategory]);
 

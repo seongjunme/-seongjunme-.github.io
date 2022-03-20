@@ -26,7 +26,6 @@ export const Wrapper = styled.div`
     line-height: 1.42;
   }
   h1 {
-    /* margin-top: 0; */
     font-size: 3.598rem;
   }
 
@@ -72,7 +71,6 @@ export const Wrapper = styled.div`
       &:not(first-child) {
         border: 1px solid #444c56;
       }
-      /* border: 1px solid #444c56; */
       padding: 6px 13px;
     }
   }

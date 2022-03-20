@@ -21,4 +21,8 @@ const Container = styled.div`
   height: 100%;
   background-color: #121212;
   color: white;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+  }
 `;

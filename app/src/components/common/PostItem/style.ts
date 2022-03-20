@@ -1,21 +1,31 @@
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/react';
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px)
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+`;
 
 export const Wrapper = styled(Link)`
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-  transition: 0.3s box-shadow;
   transition: 0.5s transform;
-  cursor: pointer;
   width: 300px;
   height: 350px;
+  cursor: pointer;
+  animation: ${fadeIn} 1s;
 
   &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-10px);
   }
 `;
