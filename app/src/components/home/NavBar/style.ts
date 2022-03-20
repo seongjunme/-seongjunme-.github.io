@@ -17,6 +17,9 @@ export const List = styled.li<{ isSelected: boolean }>`
   cursor: pointer;
   font-size: 18px;
   font-weight: ${({ isSelected }) => (isSelected ? 'bold' : 400)};
-  text-decoration: ${({ isSelected }) => (isSelected ? 'underline' : 'none')};
-  text-underline-position: under;
+  border-bottom: ${({ isSelected }) => (isSelected ? '1px solid #ffffff' : 'none')};
+
+  &:hover {
+    border-bottom: 1px solid #ffffff;
+  }
 `;
