@@ -1,0 +1,179 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.8.0"/><title data-react-helmet="true"></title><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link as="script" rel="preload" href="/webpack-runtime-c0e03c5deb701c4aedb9.js"/><link as="script" rel="preload" href="/framework-6bdc9aaa9caa3de6408b.js"/><link as="script" rel="preload" href="/app-f34191c66d70ce0253b2.js"/><link as="script" rel="preload" href="/component---src-templates-post-tsx-cdd982b2742c5fa0a328.js"/><link as="fetch" rel="preload" href="/page-data/프로세스와스레드/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css rmgwh1">.css-rmgwh1{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;background-color:#121212;color:white;}.css-rmgwh1::-webkit-scrollbar-thumb{background-color:#ffffff;}</style><div class="css-rmgwh1 ef79xez0"><style data-emotion="css-global 1llifsc">@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);*{padding:0;margin:0;box-sizing:border-box;font-family:'Open Sans',Helvetica,sans-serif;font-weight:300;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css z5i94e">.css-z5i94e{position:relative;width:100%;height:350px;}</style><div class="css-z5i94e evp6fv50"><style data-emotion="css 1cf6hsn">.css-1cf6hsn{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}</style><div class="css-1cf6hsn e1x0sffc2"><style data-emotion="css 1pr6csa">.css-1pr6csa{overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;font-size:45px;font-weight:800;}</style><div class="css-1pr6csa e1x0sffc1">프로세스와 스레드</div><style data-emotion="css 15xrm5i">.css-15xrm5i{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:flex-start;justify-content:flex-start;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;font-size:18px;font-weight:700;}.css-15xrm5i div{margin-top:10px;}</style><div class="css-15xrm5i e1x0sffc0"><div>2021.08.03.</div><div>CS</div></div></div></div><style data-emotion="css n1la39">.css-n1la39{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;word-break:break-all;line-height:1.8;font-size:1.125rem;font-weight:400;color:#ececec;}.css-n1la39 p{padding:3px 0;}.css-n1la39 h1,.css-n1la39 h2,.css-n1la39 h3,.css-n1la39 h4{margin:2.414rem 0 1rem;font-weight:inherit;line-height:1.42;}.css-n1la39 h1{font-size:3.598rem;}.css-n1la39 h2{font-size:2.827rem;}.css-n1la39 h3{font-size:1.999rem;}.css-n1la39 h4{font-size:1.414rem;}.css-n1la39 h5{font-size:1.121rem;}.css-n1la39 h6{font-size:0.88rem;}.css-n1la39 blockquote{margin:10px 0;border-left:5px solid #7a7a7a;font-style:italic;padding:5px 15px;text-align:left;background-color:#1e1e1e;}.css-n1la39 aside{background-color:#1e1e1e;margin:10px 0;}.css-n1la39 table{background-color:#22272e;border-collapse:collapse;}.css-n1la39 table th,.css-n1la39 table td{padding:6px 13px;}.css-n1la39 table th:not(first-child),.css-n1la39 table td:not(first-child){border:1px solid #444c56;}.css-n1la39 ol,.css-n1la39 ul{margin-left:20px;padding:10px 0;}.css-n1la39 hr{margin:30px 0;background:#4d4d4d;border:none;height:1px;width:100%;}.css-n1la39 a:link{-webkit-text-decoration:none;text-decoration:none;text-shadow:0 0 24px;}.css-n1la39 a:hover{color:#4263eb;}.css-n1la39 strong{font-weight:bold;}.css-n1la39 deckgo-highlight-code{font-size:14px;}</style><div class="css-n1la39 era8a5j0"><h1>1. 프로세스와 스레드</h1>
+<h2>1.1 프로세스</h2>
+<hr>
+<ul>
+<li>
+<p>프로세스란</p>
+<ul>
+<li>OS에서 메모리 영역을 할당받아 실행되는 독립적인 프로그램 인스턴스</li>
+<li>하나의 프로세스는 별도의 메모리 공간을 할당 받아 사용</li>
+<li>즉, 동적인 개념으로는 실행된 프로그램을 의미</li>
+</ul>
+</li>
+<li>
+<p>할당 받는 메모리 공간</p>
+<img src="https://user-images.githubusercontent.com/72444675/159236544-b958be1d-76d2-43ca-a3fb-713664e0fc4d.png" width="700px">
+<ul>
+<li>프로세스는 각각 독립된 메모리 영역 (code, data, stack, heap)을 할당받는다.</li>
+<li>프로세스는 기본적으로 최소 1개의 스레드(메인 스레드)를 가지고 있다.</li>
+<li>서로 다른 프로세스의 메모리 영역은 접근할 수 없다.</li>
+<li>다른 프로세스의 메모리 영역에 접근하려면 통신을 사용해야한다.</li>
+</ul>
+</li>
+</ul>
+<h2>1.2 스레드</h2>
+<hr>
+<ul>
+<li>
+<p>스레드란</p>
+<ul>
+<li>프로세스 내에서 실행되는 여러 흐름의 단위</li>
+<li>프로세스가 할당받은 자원을 이용하는 실행 단위</li>
+</ul>
+</li>
+<li>
+<p>특징</p>
+<img src="https://user-images.githubusercontent.com/72444675/159236810-9701973b-32ea-444a-a779-6b19d0514577.png" width="700px">
+<ul>
+<li>스레드는 프로세스 내에서 각각 Stack만 따로 할당받고 나머지 영역은 공유한다.</li>
+<li>스레드는 한 프로세스 내의 주소 공간이나 자원을 같은 프로세스 내의 스레드끼리 공유한다.</li>
+</ul>
+</li>
+</ul>
+<h2>1.3 멀티 프로세스</h2>
+<hr>
+<ul>
+<li>
+<p>멀티 프로세싱이란</p>
+<ul>
+<li>하나의 응용 프로그램을 여러 개의 프로세스로 구성하여 각 프로세스가 하나의 작업을 처리하도록 하는 것이다</li>
+</ul>
+</li>
+<li>
+<p>장점</p>
+<ul>
+<li>멀티 프로세싱은 프로세스간 공유하는 자원이 없기 때문에, 동일한 자원에 동시에 접근해서 발생하는 critical section문제(dead lock)가 발생하지 않는다.</li>
+</ul>
+</li>
+<li>
+<p>단점</p>
+<ul>
+<li>프로세스를 번갈아가면서 실행시키기 때문에 context switch 과정에서 오버헤드가 발생한다.</li>
+</ul>
+</li>
+</ul>
+<h2>1.4 멀티 스레딩</h2>
+<hr>
+<ul>
+<li>
+<p>멀티 스레딩이란</p>
+<ul>
+<li>하나의 응용 프로그램을 여러 개의 스레드로 구성하고, 각 스레드가 하나의 작업을 처리하는 것이다.</li>
+</ul>
+</li>
+<li>
+<p>장점</p>
+<ul>
+<li>
+<p>시스템 자원 소모 감소</p>
+<ul>
+<li>프로세스를 생성하여 자원을 할당하는 시스템 콜이 줄어들어 자원을 효율적으로 관리할 수 있다.</li>
+</ul>
+</li>
+<li>
+<p>시스템 처리량 증가</p>
+<ul>
+<li>스레드 간 데이터를 주고 받는 것이 간단해지고 시스템 자원 소모가 줄어들게 된다.</li>
+</ul>
+</li>
+<li>
+<p>스레드는 프로세스 내의 Stack 영역을 제외한 모든 메모리를 공유하기 때문에 통신의 부담이 적다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>단점</p>
+<ul>
+<li>상당히 복잡해질 수 있다.</li>
+<li>디버깅이 힘들다</li>
+<li>데드락 가능성 증가
+<a href="https://gmlwjd9405.github.io/2018/09/14/process-vs-thread.html" target="_blank" rel="nofollow">https://gmlwjd9405.github.io/2018/09/14/process-vs-thread.html</a></li>
+</ul>
+</li>
+</ul>
+<h1>2. 스케줄링</h1>
+<h2>2.1 프로세스 상태</h2>
+<hr>
+<ul>
+<li>
+<p>프로세스는 다음 5가지 상태 중 하나를 가진다.</p>
+<ul>
+<li>생성(create): 프로세스가 생성되는 중이다.</li>
+<li>실행(running): 프로세스가 자원을 할당받아 실행되는 중이다.</li>
+<li>준비(ready): 프로세스가 자원을 사용하고 있지 않지만, 언제든 자원을 받아 실행할 수 있는 상태</li>
+<li>대기(waiting): 프로세스가 입출력 완료, 시그널 수신 등 어떤 사건을 기다리고 있는 상태 (인터럽트 발생)</li>
+<li>종료(terminated): 프로세스가 종료된 상태</li>
+</ul>
+<img src="https://user-images.githubusercontent.com/72444675/159237008-c1c5870c-9d51-47e9-867c-bd2e53a21700.png" width="700px">
+</li>
+</ul>
+<h2>2.2 스케줄링</h2>
+<hr>
+<p>OS는 준비 큐(Ready Queue), 대기 큐(Waiting Queue) 등의 자료구조를 두어 프로세스를 관리한다. 준비 큐는 ready상태에 있는 프로세스들을 모아놓은 큐이다. OS는 CPU 스케줄러를 통해 준비 큐에 있는 프로세스 중 한 프로세스를 골라 다음에 실행시킨다.</p>
+<h3>선점과 비선점</h3>
+<hr>
+<p>프로세스 스케줄링은 다음 네 가지 경우에 일어날 수 있다.</p>
+<ul>
+<li>프로세스가 실행 상태(running)에서 대기 상태(waiting)으로 전환될 때</li>
+<li>프로세스가 실행 상태(running)에서 준비 상태(ready)로 전환될 때</li>
+<li>프로세스가 대기 상태(waiting)에서 준비 상태(ready)로 전환될 때</li>
+<li>프로세스가 종료되었을 때(terminated)</li>
+</ul>
+<p>만약 프로세스 스케줄링이 첫 번째와 네 번째 경우에만 일어난다면 이를 비선점 스케줄링이라 한다. 즉, 인터럽트나, 종료가 아니면 프로세스 전환이 일어나지 않는다.</p>
+<p>그렇지 않고 일정 규칙을 두어 프로세스 전환이 일어난다면, 즉 위 네 가지의 모든 경우에서 스케줄링이 일어난다면 이를 선점형 스케줄링이라 한다.</p>
+<h3>FCFS (First Come First Served)</h3>
+<hr>
+<ul>
+<li>선입선출</li>
+<li>비선점형 스케줄링</li>
+<li>응답시간이 길어질 수 있음</li>
+<li>다른 프로세스가 끝날 때까지 기다려야한다.</li>
+</ul>
+<h3>SJF(Shortest Job First)</h3>
+<hr>
+<ul>
+<li>CPU burst time이 짧은 프로세스를 우선으로 할당하는 방법</li>
+<li>일종의 우선순위 기법</li>
+<li>비선점형과 선점형 모두 존재</li>
+<li>최소 평균 대기 시간을 보장한다.</li>
+<li>기아 현상 발생 가능성이 있다. (원래있던 프로세스보다 burst time이 짧은 프로세스가 계속 들어오면, 원래 프로세스는 계속 실행되지 못함)</li>
+</ul>
+<h3>SRTF(Shortest Remaining Time First)</h3>
+<hr>
+<ul>
+<li>SJF의 선점형 스케줄링 방식</li>
+<li>남은 프로세스의 burst time 보다 더 짧은 프로세스가 도착하면 CPU를 빼앗음</li>
+<li>프로세스가 새로 들어올 때마다 갱신된다.</li>
+<li>스케줄링이 비규칙적으로 변경되어 cpu 사용시간을 정확히 예측하기 어렵다.</li>
+</ul>
+<h3>Priority Scheduling</h3>
+<hr>
+<ul>
+<li>Highest Priority를 가진 프로세스에게 CPU를 할당</li>
+<li>선점형 방식에서는 새로 도착한 프로세스의 우선순위가 현재 실행되는 프로세스보다 높으면 CPU를 선점한다.</li>
+<li>비선점 방식에서는 더 높은 우선순위의 프로세스가 들어오면 Ready queue의 head 부분에 넣는다.</li>
+<li>기아 현상 발생 ( 우선순위가 계속 낮을 경우 실행되지 못함 )
+<ul>
+<li>Aging 기법으로 해결 가능 ( 한번 실행된 프로세스는 우선순위가 조금씩 낮아지는 방법 )</li>
+</ul>
+</li>
+</ul>
+<h3>RR(Round Robin)</h3>
+<hr>
+<ul>
+<li>선점형 스케줄링 방식</li>
+<li>각 프로세스는 동일한 할당 시간을 가지고, 할당 시간이 지나면 다른 프로세스에게 자원을 선점 당한 뒤, Ready queue의 맨 위로 가게 된다.</li>
+<li>모든 프로세스에게 공정한 방식</li>
+<li>평균 대기 시간이 길어질 수 있으나, 응답 시간이 짧아 진다.</li>
+<li>Context switching 오버헤드</li>
+</ul></div><style data-emotion="css c5tzst">.css-c5tzst{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}</style><div class="css-c5tzst evi8j960">Thank You for Visiting My Blog, Have a Good Day.<br/>@ 2022 Developer Jun, Powerd By Gatsby.</div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/프로세스와스레드/";window.___webpackCompilationHash="8c045dea22caf3cb9e79";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-f34191c66d70ce0253b2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-5a1562b048caf7768ff8.js"],"component---src-pages-blog-tsx":["/component---src-pages-blog-tsx-0495f90534ea9d80a60f.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-e5c9658481bba102ebab.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-cdd982b2742c5fa0a328.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-tsx-cdd982b2742c5fa0a328.js" async=""></script><script src="/app-f34191c66d70ce0253b2.js" async=""></script><script src="/framework-6bdc9aaa9caa3de6408b.js" async=""></script><script src="/webpack-runtime-c0e03c5deb701c4aedb9.js" async=""></script></body></html>
