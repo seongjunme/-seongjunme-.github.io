@@ -1,15 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
+import { MutableRefObject, useState, useRef, useEffect } from 'react';
 import debounce from 'utils/debounce';
 
 const PAGE_NAMES = ['About', 'Project', 'Blog', 'Contact'];
 
 const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
-  const outerRef = useRef<any>();
+  const outerRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const currentPage = useRef(0);
   const [currentPageName, setCurrentPageName] = useState<string>(PAGE_NAMES[currentPage.current]);
 
   const scrollToCurrentPage = () => {
-    outerRef.current.scrollTo({
+    outerRef.current?.scrollTo({
       top: window.innerHeight * currentPage.current,
       left: 0,
       behavior: 'smooth',
@@ -65,7 +65,7 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
     setCurrentPageName(innerText);
   };
 
-  return [outerRef, currentPageName, onClickNavBar];
+  return { outerRef, currentPageName, onClickNavBar };
 };
 
 export default useFullPage;

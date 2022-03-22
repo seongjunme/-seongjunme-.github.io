@@ -31,7 +31,7 @@ const Index: React.FC<Props> = ({
     },
   },
 }) => {
-  const [outerRef, currentPageName, onClickNavBar] = useFullPage({ maxPageCount: 3 });
+  const { outerRef, currentPageName, onClickNavBar } = useFullPage({ maxPageCount: 3 });
 
   const projects = useMemo(
     () =>
@@ -57,7 +57,7 @@ const Index: React.FC<Props> = ({
     [],
   );
   return (
-    <Background ref={outerRef} className="outer">
+    <Background ref={outerRef}>
       <NavBar currentPageName={currentPageName} onClickNavBar={onClickNavBar} />
       <About image={gatsbyImageData} />
       <PostList posts={projects} />
