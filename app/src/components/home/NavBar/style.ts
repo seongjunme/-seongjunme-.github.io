@@ -11,9 +11,10 @@ export const Container = styled.ul`
   align-items: center;
   z-index: 100;
 
-  @media (max-width: 786px) {
+  @media (max-width: 767px) {
     position: fixed;
     right: 0rem;
+    justify-content: space-evenly;
   }
 `;
 
@@ -26,5 +27,9 @@ export const List = styled.li<{ isSelected: boolean }>`
 
   &:hover {
     border-bottom: 0.0625rem solid #ffffff;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 0.875rem;
   }
 `;
