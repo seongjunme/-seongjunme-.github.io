@@ -26,6 +26,10 @@ export const Container = styled.div`
   @media (max-width: 767px) {
     width: 100%;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 48rem;
+  }
 `;
 
 export const SubTitle = styled.div`
