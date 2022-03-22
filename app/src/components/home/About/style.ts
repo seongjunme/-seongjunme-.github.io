@@ -14,18 +14,30 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1080px;
+  width: 67.5rem;
   margin: 0 auto;
-  padding: 0px 100px;
+  padding: 0rem 6.25rem;
+
+  @media (max-width: 786px) {
+    width: 100%;
+  }
 `;
 
 export const SubTitle = styled.div`
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 400;
+
+  @media (max-width: 786px) {
+    font-size: 1rem;
+  }
 `;
 
 export const Title = styled.div`
-  margin-top: 5px;
-  font-size: 35px;
+  margin-top: 0.3125rem;
+  font-size: 2.1875rem;
   font-weight: 700;
+
+  @media (max-width: 786px) {
+    font-size: 1.25rem;
+  }
 `;
