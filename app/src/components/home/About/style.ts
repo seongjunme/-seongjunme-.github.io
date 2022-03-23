@@ -2,14 +2,14 @@ import styled from '@emotion/styled';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 export const ProfileImage = styled(GatsbyImage)`
-  width: 200px;
-  height: 200px;
-  margin-bottom: 30px;
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-bottom: 1.875rem;
   border-radius: 50%;
 
   @media (max-width: 767px) {
-    width: 100px;
-    height: 100px;
+    width: 9.375rem;
+    height: 9.375rem;
   }
 `;
 
@@ -43,6 +43,10 @@ export const SubTitle = styled.div`
   @media (min-width: 480px) and (max-width: 767px) {
     font-size: 1rem;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 1.25rem;
+  }
 `;
 
 export const Title = styled.div`
@@ -56,5 +60,9 @@ export const Title = styled.div`
 
   @media (min-width: 480px) and (max-width: 767px) {
     font-size: 1.25rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 1.5rem;
   }
 `;
