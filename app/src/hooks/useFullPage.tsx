@@ -1,5 +1,6 @@
 import { MutableRefObject, useState, useRef, useEffect, useCallback } from 'react';
 import debounce from 'utils/debounce';
+import smoothscroll from 'smoothscroll-polyfill';
 
 const PAGE_NAMES = ['About', 'Project', 'Blog', 'Contact'];
 
@@ -98,6 +99,10 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
     return () => {
       window.removeEventListener('resize', scrollToCurrentPage);
     };
+  }, []);
+
+  useEffect(() => {
+    smoothscroll.polyfill();
   }, []);
 
   const onClickNavBar = useCallback((e: React.MouseEvent<HTMLElement>) => {
