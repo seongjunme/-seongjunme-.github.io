@@ -72,7 +72,6 @@ const Index: React.FC<Props> = ({
 export default Index;
 
 const Background = styled.div`
-  /* height: 100vh; */
   height: calc(var(--vh, 1vh) * 100);
   overflow-y: hidden;
   overflow-x: hidden;

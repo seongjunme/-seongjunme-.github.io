@@ -1,6 +1,12 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
+export const Wrapper = styled.div`
+  height: calc(var(--vh, 1vh) * 100);
+  position: relative;
+  margin: 0 auto;
+`;
+
 export const Container = styled.div`
   display: grid;
   justify-content: center;
@@ -11,13 +17,6 @@ export const Container = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-`;
-
-export const Wrapper = styled.div`
-  /* height: 100vh; */
-  height: calc(var(--vh, 1vh) * 100);
-  position: relative;
-  margin: 0 auto;
 `;
 
 export const More = styled(Link)`
