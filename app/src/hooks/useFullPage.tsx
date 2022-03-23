@@ -7,6 +7,8 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
   const outerRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
   const currentPage = useRef(0);
   const [currentPageName, setCurrentPageName] = useState<string>(PAGE_NAMES[currentPage.current]);
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
 
   const scrollToCurrentPage = useCallback(() => {
     outerRef.current?.scrollTo({
@@ -44,6 +46,34 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
 
     return () => {
       outerRef.current?.removeEventListener('wheel', wheelHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    const touchStartHandler = debounce((e: TouchEvent) => {
+      e.preventDefault();
+
+      touchStartY.current = e.changedTouches[0].clientY;
+    }, 50);
+
+    const touchEndHandler = debounce((e: TouchEvent) => {
+      e.preventDefault();
+
+      touchEndY.current = e.changedTouches[0].clientY;
+
+      if (touchStartY.current < touchEndY.current && currentPage.current > 0) {
+        scrollUp();
+      } else if (touchStartY.current > touchEndY.current && currentPage.current < maxPageCount) {
+        scrollDown();
+      }
+    }, 50);
+
+    outerRef.current?.addEventListener('touchstart', touchStartHandler);
+    outerRef.current?.addEventListener('touchend', touchEndHandler);
+
+    return () => {
+      outerRef.current?.removeEventListener('touchstart', touchStartHandler);
+      outerRef.current?.removeEventListener('touchend', touchEndHandler);
     };
   }, []);
 
