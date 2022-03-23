@@ -26,8 +26,14 @@
 <li>Gatsby를 이용한 블로그</li>
 <li>Full Page 사이트</li>
 <li>무한 스크롤 기능</li>
+<li>반응형 UI 구현</li>
 </ul>
 <h2>👍 기술 특장점</h2>
+<p>1️⃣ Graphql을 이용한 Markdown 데이터 요청 <br>
+2️⃣ Gatsby의 slug 기능을 이용하여 해당 Markdown 게시글과 연동 <br>
+3️⃣ Full Page 구현 <br>
+4️⃣ 무한 스크롤 구현 <br>
+5️⃣ Fullpage 태블릿 &#x26; 모바일 환경 호환 <br></p>
 <h3>1️⃣ Graphql을 이용한 Markdown 데이터 요청</h3>
 <p>Gatsby에서 제공해주는 Graphql을 이용하여 Markdown 데이터 소스를 얻고, 이를 html로 변환할 수 있다.
 이를 위해서는 먼저 두 가지 플러그인이 필요하다.</p>
@@ -417,4 +423,139 @@ const useInfiniteScroll = ({ posts, selectedCategory }: { posts: PostListType[],
 };
 
 export default useInfiniteScroll;</code>
+        </deckgo-highlight-code>
+<h3>5️⃣ Fullpage 태블릿 &#x26; 모바일 환경 호환</h3>
+<h4>화면 높이 지정 - 100vh</h4>
+<ul>
+<li>모바일 환경에서의 100vh는 브라우저 상단의 url 영역과 하단의 네비게이션 영역을 포함한다.</li>
+<li>따라서 높이를 화면 가득 채우려고 100vh를 사용한다면 실제 화면보다 높이가 크게 잡히는 문제가 발생한다.</li>
+<li>따라서 window.innerHeight를 사용하여 실제 화면 높이를 가져온 후 설정해준다.</li>
+</ul>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">useEffect(() =&gt; {
+  const setScreenSize = () =&gt; {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty(&#39;--vh&#39;, `${vh}px`);
+  };
+  setScreenSize();
+
+  window.addEventListener(&#39;resize&#39;, setScreenSize);
+
+  return () =&gt; {
+    window.removeEventListener(&#39;resize&#39;, setScreenSize);
+  };
+}, []);</code>
+        </deckgo-highlight-code>
+<ul>
+<li>
+<p>resize 이벤트 발생 시에 화면 크기가 변경되는 것을 고려하여 이벤트를 등록해준다.</p>
+</li>
+<li>
+<p>–vh변수에 계산한 innerHeight 값을 저장한 뒤 다음과 같이 사용한다.</p>
+</li>
+</ul>
+<deckgo-highlight-code language="css" terminal="carbon"  >
+          <code slot="code">body {
+  height: calc(var(--vh, 1vh) * 100);
+}</code>
+        </deckgo-highlight-code>
+<ul>
+<li>
+<p>–vh가 존재하면 그 값을, 아니면 1vh를 사용한다.</p>
+</li>
+<li>
+<p>모바일의 경우 가로, 세로 전환을 할 수 있다.</p>
+</li>
+<li>
+<p>가로, 세로 전환 시 resize 이벤트가 2번 발생하는 경우가 발생했다.</p>
+</li>
+<li>
+<p>이 문제 때문에 화면 높이가 제대로 잡히지 않는 현상이 발생했고 이를 해결하기 위해 debounce를 적용하여 마지막 이벤트만 수행하도록 했다.</p>
+</li>
+</ul>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">useEffect(() =&gt; {
+  const setScreenSize = debounce(() =&gt; {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty(&#39;--vh&#39;, `${vh}px`);
+  }, 50);
+
+  setScreenSize();
+
+  window.addEventListener(&#39;resize&#39;, setScreenSize);
+
+  return () =&gt; {
+    window.removeEventListener(&#39;resize&#39;, setScreenSize);
+  };
+}, []);</code>
+        </deckgo-highlight-code>
+<h4>터치 이벤트 적용</h4>
+<ul>
+<li>현재 Full Page의 경우 wheel 이벤트만 등록되어 있다.</li>
+<li>모바일 환경에서는 wheel보다는 touch를 사용하므로 그에 따른 대안이 필요하다.</li>
+<li>touch의 방향을 알기 위해 touchstart의 y좌표와 touchend의 y좌표를 비교한다.</li>
+<li>touchstart의 y좌표가 더 크다면 아래에서 위로 드래그한 것이므로 scollDown()을 실행한다.</li>
+<li>반다로 touchend의 y좌표가 더 크다면 위에서 아래로 드래그한 것이므로 scollUp()을 실행한다.</li>
+</ul>
+<deckgo-highlight-code language="jsx" terminal="carbon"  >
+          <code slot="code">const touchStartY = useRef(0);
+const touchEndY = useRef(0);
+
+useEffect(() =&gt; {
+  const touchStartHandler = debounce((e: TouchEvent) =&gt; {
+    e.preventDefault();
+
+    touchStartY.current = e.changedTouches[0].clientY;
+  }, 50);
+
+  const touchEndHandler = debounce((e: TouchEvent) =&gt; {
+    e.preventDefault();
+
+    touchEndY.current = e.changedTouches[0].clientY;
+
+    if (touchStartY.current &lt; touchEndY.current &amp;&amp; currentPage.current &gt; 0) {
+      scrollUp();
+    } else if (touchStartY.current &gt; touchEndY.current &amp;&amp; currentPage.current &lt; maxPageCount) {
+      scrollDown();
+    }
+  }, 50);
+
+  outerRef.current?.addEventListener(&#39;touchstart&#39;, touchStartHandler);
+  outerRef.current?.addEventListener(&#39;touchend&#39;, touchEndHandler);
+
+  return () =&gt; {
+    outerRef.current?.removeEventListener(&#39;touchstart&#39;, touchStartHandler);
+    outerRef.current?.removeEventListener(&#39;touchend&#39;, touchEndHandler);
+  };
+}, []);</code>
+        </deckgo-highlight-code>
+<h4>scroll smooth-behavior</h4>
+<ul>
+<li>
+<p>마지막으로 웹 브라우저에서는 다음과 같은 코드가 잘 동작한다.</p>
+<deckgo-highlight-code language="js" terminal="carbon"  >
+          <code slot="code">outerRef.current?.scrollTo({
+  top: window.innerHeight * currentPage.current,
+  left: 0,
+  behavior: &#39;smooth&#39;,
+});</code>
+        </deckgo-highlight-code>
+</li>
+<li>
+<p>하지만 모바일 브라우저에 따라서는 smooth 동작이 수행되지 않는 경우가 있다.</p>
+</li>
+<li>
+<p>따라서 다음과 같은 패키지를 설치해준다.</p>
+</li>
+</ul>
+<deckgo-highlight-code  terminal="carbon"  >
+          <code slot="code">npm install smoothscroll-polyfill --save</code>
+        </deckgo-highlight-code>
+<ul>
+<li>그리고 다음과 같이 사용한다.</li>
+</ul>
+<deckgo-highlight-code language="js" terminal="carbon"  >
+          <code slot="code">import smoothscroll from &#39;smoothscroll-polyfill&#39;;
+
+smoothscroll.polyfill();</code>
         </deckgo-highlight-code></div><style data-emotion="css jppgbf">.css-jppgbf{display:grid;place-items:center;margin-top:auto;padding:3.125rem 0;font-size:0.9375rem;text-align:center;line-height:1.5;}</style><div class="css-jppgbf evi8j960">Thank You for Visiting My Blog, Have a Good Day.<br/>@ 2022 Developer Jun, Powerd By Gatsby.</div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/포트폴리오사이트/";window.___webpackCompilationHash="6ea9d2e97b892b4ccaa1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-f34191c66d70ce0253b2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-5a1562b048caf7768ff8.js"],"component---src-pages-blog-tsx":["/component---src-pages-blog-tsx-892c8a8d330fbfc194c0.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-6b86677c049505bcef48.js"],"component---src-templates-post-tsx":["/component---src-templates-post-tsx-268e05f5ac4790150225.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-tsx-268e05f5ac4790150225.js" async=""></script><script src="/app-f34191c66d70ce0253b2.js" async=""></script><script src="/framework-6bdc9aaa9caa3de6408b.js" async=""></script><script src="/webpack-runtime-d7ad4aeccb5b6abff35a.js" async=""></script></body></html>
