@@ -90,8 +90,6 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
     const setScreenSize = debounce(() => {
       const vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-      console.log(vh * 100);
     }, 50);
 
     setScreenSize();
