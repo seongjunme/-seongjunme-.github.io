@@ -47,19 +47,19 @@ export const Wrapper = styled(Link)`
 
 export const Thumbnail = styled(GatsbyImage)`
   width: 100%;
-  height: 145px;
-  border-radius: 10px 10px 0 0;
+  height: 9.0625rem;
+  border-radius: 0.625rem 0.625rem 0 0;
 
   @media (max-width: 479px) {
-    height: 40px;
+    height: 2.5rem;
   }
 
   @media (min-width: 480px) and (max-width: 767px) {
-    height: 60px;
+    height: 3.75rem;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    height: 105px;
+    height: 6.5625rem;
   }
 `;
 
@@ -67,106 +67,106 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 15px;
+  padding: 0.9375rem;
   background-color: #1e1e1e;
-  height: 200px;
+  height: 12.5rem;
   color: white;
 
   @media (max-width: 479px) {
-    height: 96px;
+    height: 6rem;
   }
 
   @media (min-width: 480px) and (max-width: 767px) {
-    height: 102px;
+    height: 6.375rem;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    height: 140px;
+    height: 8.75rem;
   }
 `;
 
 export const Title = styled.div`
   display: -webkit-box;
   overflow: hidden;
-  margin-bottom: 3px;
+  margin-bottom: 0.1875rem;
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
 
   @media (max-width: 479px) {
-    font-size: 10px;
+    font-size: 0.625rem;
     white-space: nowrap;
   }
 
   @media (min-width: 480px) and (max-width: 767px) {
-    font-size: 12px;
+    font-size: 0.75rem;
     white-space: nowrap;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
 export const Date = styled.div`
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   opacity: 0.7;
 
   @media (max-width: 479px) {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
 
   @media (min-width: 480px) and (max-width: 767px) {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 `;
 
 export const Category = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
-  margin: 10px -5px;
+  margin-top: 0.625rem;
+  margin: 0.625rem -0.3125rem;
 
   @media (max-width: 479px) {
     flex-wrap: nowrap;
     overflow: hidden;
-    margin: 2px -5px;
+    margin: 0.125rem -0.3125rem;
   }
 
   @media (min-width: 480px) and (max-width: 767px) {
     flex-wrap: nowrap;
     overflow: hidden;
-    margin: 4px -5px;
+    margin: 0.25rem -0.3125rem;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    margin: 6px -5px;
+    margin: 0.375rem -0.3125rem;
   }
 `;
 
 export const CategoryItem = styled.div`
-  margin: 0px 5px;
-  border-radius: 3px;
-  font-size: 14px;
+  margin: 0rem 0.3125rem;
+  border-radius: 0.1875rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: white;
 
   @media (max-width: 479px) {
-    font-size: 6px;
+    font-size: 0.375rem;
   }
 
   @media (min-width: 480px) and (max-width: 767px) {
-    font-size: 8px;
+    font-size: 0.5rem;
   }
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 `;
 
@@ -176,16 +176,16 @@ export const Summary = styled.div`
   text-overflow: ellipsis;
   white-space: normal;
   overflow-wrap: break-word;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #d9d9d9;
 
   @media (max-width: 767px) {
-    font-size: 8px;
+    font-size: 0.5rem;
     white-space: nowrap;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 12px;
+    font-size: 0.75rem;
     white-space: nowrap;
   }
 `;
@@ -193,56 +193,56 @@ export const Summary = styled.div`
 export const Footer = styled.div`
   display: flex;
   align-items: center;
-  padding: 10px;
-  border-top: 1px solid #2a2a2a;
+  padding: 0.625rem;
+  border-top: 0.0625rem solid #2a2a2a;
 
-  height: 45px;
+  height: 2.8125rem;
   background-color: #1e1e1e;
   font-weight: 400;
   color: white;
   span {
-    font-size: 12px;
+    font-size: 0.75rem;
     color: #acacac;
   }
 
   b {
-    margin: 0 4px;
-    font-size: 14px;
+    margin: 0 0.25rem;
+    font-size: 0.875rem;
   }
 
   @media (max-width: 479px) {
-    height: 10px;
+    height: 0.625rem;
 
     span {
-      font-size: 6px;
+      font-size: 0.375rem;
     }
 
     b {
-      font-size: 8px;
+      font-size: 0.5rem;
     }
   }
 
   @media (min-width: 480px) and (max-width: 767px) {
-    height: 18px;
+    height: 1.125rem;
 
     span {
-      font-size: 8px;
+      font-size: 0.5rem;
     }
 
     b {
-      font-size: 10px;
+      font-size: 0.625rem;
     }
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    height: 25px;
+    height: 1.5625rem;
 
     span {
-      font-size: 10px;
+      font-size: 0.625rem;
     }
 
     b {
-      font-size: 12px;
+      font-size: 0.75rem;
     }
   }
 `;

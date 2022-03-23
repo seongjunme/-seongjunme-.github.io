@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   justify-items: center;
   justify-content: center;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px;
+  grid-gap: 1.875rem;
   margin: 0 auto;
-  padding: 50px 0 100px;
+  padding: 3.125rem 0 6.25rem;
 `;

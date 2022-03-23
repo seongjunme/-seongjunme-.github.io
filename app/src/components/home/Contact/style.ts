@@ -13,6 +13,6 @@ export const Content = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  line-height: 24px;
-  font-size: 18px;
+  line-height: 1.5rem;
+  font-size: 1.125rem;
 `;
