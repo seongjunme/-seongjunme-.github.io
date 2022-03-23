@@ -55,6 +55,15 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
     };
   });
 
+  useEffect(() => {
+    const setScreenSize = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    window.addEventListener('resize', setScreenSize);
+  }, []);
+
   const onClickNavBar = useCallback((e: React.MouseEvent<HTMLElement>) => {
     const {
       currentTarget: { innerText },

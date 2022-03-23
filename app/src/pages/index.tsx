@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
 import About from 'components/home/About';
@@ -56,6 +56,7 @@ const Index: React.FC<Props> = ({
       ),
     [],
   );
+
   return (
     <Background ref={outerRef}>
       <NavBar currentPageName={currentPageName} onClickNavBar={onClickNavBar} />
@@ -71,7 +72,8 @@ const Index: React.FC<Props> = ({
 export default Index;
 
 const Background = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
+  height: calc(var(--vh, 1vh) * 100);
   overflow-y: hidden;
   overflow-x: hidden;
 

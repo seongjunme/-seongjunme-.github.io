@@ -14,7 +14,8 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
+  height: calc(var(--vh, 1vh) * 100);
   position: relative;
   margin: 0 auto;
 `;
