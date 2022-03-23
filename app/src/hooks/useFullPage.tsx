@@ -64,6 +64,10 @@ const useFullPage = ({ maxPageCount }: { maxPageCount: number }) => {
     setScreenSize();
 
     window.addEventListener('resize', setScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', scrollToCurrentPage);
+    };
   }, []);
 
   const onClickNavBar = useCallback((e: React.MouseEvent<HTMLElement>) => {
