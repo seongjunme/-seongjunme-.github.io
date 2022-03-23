@@ -1,7 +1,7 @@
 import { MutableRefObject, useState, useRef, useEffect, useMemo } from 'react';
 import { PostListType } from 'types/post.types';
 
-const POST_COUNT_BY_PAGE = 9;
+const POST_COUNT_BY_PAGE = 12;
 
 const useInfiniteScroll = ({ posts, selectedCategory }: { posts: PostListType[]; selectedCategory: string }) => {
   const [page, setPage] = useState(1);
