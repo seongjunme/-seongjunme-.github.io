@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import styled from '@emotion/styled';
 import GlobalStyle from 'components/common/GlobalStyle';
 import About from 'components/home/About';
