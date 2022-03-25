@@ -1,6 +1,7 @@
 import { graphql } from 'gatsby';
 import React from 'react';
 import Layout from 'components/common/Layout';
+import ScrollProgressBar from 'components/post/ScrollProgressBar';
 import PostHeader from 'components/post/PostHeader';
 import { PostPageType } from 'types/post.types';
 import PostContent from 'components/post/PostContent';
@@ -38,6 +39,7 @@ const post: React.FC<Props> = ({
 }) => {
   return (
     <Layout>
+      <ScrollProgressBar />
       <PostHeader image={gatsbyImageData} title={title} date={date} categories={categories} />
       <PostContent html={html} />
     </Layout>
