@@ -15,7 +15,7 @@ const ScrollProgressBar = () => {
       window.removeEventListener('scroll', updateScrollDepth);
     };
   }, []);
-  console.log(scrollDepth);
+
   return (
     <Container>
       <div className="progress-bar" style={{ width: `${scrollDepth}%` }}></div>
