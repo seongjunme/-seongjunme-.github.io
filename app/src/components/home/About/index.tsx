@@ -13,8 +13,7 @@ const Intro: React.FC<Props> = ({ image }) => {
       <ProfileImage image={image} alt="Profile Image" />
       <SubTitle>"안녕하세요."</SubTitle>
       <Title>"프론트엔드를 사랑하는"</Title>
-      <Title>"웹 성능 개선을 좋아하는"</Title>
-      <Title>"협업에 진심인 주니어 개발자입니다."</Title>
+      <Title>"주니어 개발자입니다."</Title>
     </Container>
   );
 };
